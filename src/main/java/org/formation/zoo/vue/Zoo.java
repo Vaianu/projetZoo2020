@@ -23,7 +23,7 @@ public final class Zoo {
 		Manager.getInstance();
 	}
 	/**
-	 * MÃ©thode privÃ©e qui charge le modÃ¨le.
+	 * Méthode privée qui charge le modèle.
 	 * Pour l'instant elle instancie les animaux
 	 */
 	@Deprecated
@@ -49,7 +49,7 @@ public final class Zoo {
 	 * 
 	 * @param mangeur indice de l'animal mangeur (sa cage)
 	 * @param mange indice de la cage de la proie
-	 * @return le texte sur ce qu'il s'est passÃ©
+	 * @return le texte sur ce qu'il s'est passé
 	 */
 	public String devorer(int mangeur, int mange)
 	{
