@@ -38,9 +38,9 @@ class ZooTests {
 	
 	@Test
 	void testNourrir() {
-		// a référence sur l'objet lion
+		// objet a reference sur l'objet lion
 		Animal a = Manager.getInstance().getLesCages().get(1).getOccupant();
-		a.dormir();
+		a.dormir(); // diminue poids du lion pour eviter erreur quand il atteint son poids max pour assertEqual()
 		a.dormir();
 		double p = a.getPoids();
 		assertEquals(p, a.getPoids());
