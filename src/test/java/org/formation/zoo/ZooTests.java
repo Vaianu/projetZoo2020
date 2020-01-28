@@ -2,6 +2,8 @@ package org.formation.zoo;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.formation.zoo.controleur.Manager;
+import org.formation.zoo.modele.Animal;
 import org.formation.zoo.vue.Zoo;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -33,5 +35,16 @@ class ZooTests {
 		//lion gazelle
 		assertEquals("MIAM",z.devorer(1, 3));
 	}
-
+	
+	@Test
+	void testNourrir() {
+		// a référence sur l'objet lion
+		Animal a = Manager.getInstance().getLesCages().get(1).getOccupant();
+		a.dormir();
+		a.dormir();
+		double p = a.getPoids();
+		assertEquals(p, a.getPoids());
+		z.nourrir();
+		assertEquals(p+2.1, a.getPoids());
+	}
 }
