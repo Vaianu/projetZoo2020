@@ -75,7 +75,7 @@ class LionTests {
 		double p = lion.getPoids();
 		assertEquals(p, lion.getPoids());
 		assertEquals("MIAM", lion.manger(g)); 
-		assertEquals(p+(g.prelever()), lion.getPoids());
+		assertEquals(p+g.prelever(), lion.getPoids());
 	}
 
 }
