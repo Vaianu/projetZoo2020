@@ -6,7 +6,7 @@ import org.formation.zoo.modele.Singe;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-class SingeTest {
+class SingeTests {
 
 	static Singe singe;
 	@BeforeAll
