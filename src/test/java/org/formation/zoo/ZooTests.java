@@ -3,7 +3,7 @@ package org.formation.zoo;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.formation.zoo.controleur.Manager;
-import org.formation.zoo.modele.Animal;
+import org.formation.zoo.modele.metier.Animal;
 import org.formation.zoo.vue.Zoo;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

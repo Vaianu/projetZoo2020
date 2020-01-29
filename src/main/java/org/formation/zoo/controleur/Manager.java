@@ -2,9 +2,9 @@ package org.formation.zoo.controleur;
 
 import java.util.List;
 
-import org.formation.zoo.modele.Animal;
-import org.formation.zoo.modele.Cage;
-import org.formation.zoo.modele.Mangeable;
+import org.formation.zoo.modele.metier.Animal;
+import org.formation.zoo.modele.metier.Cage;
+import org.formation.zoo.modele.metier.Mangeable;
 import org.formation.zoo.modele.technique.BeurkException;
 import org.formation.zoo.modele.technique.CagePleineException;
 import org.formation.zoo.modele.technique.PorteException;

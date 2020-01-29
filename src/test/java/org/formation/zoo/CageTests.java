@@ -2,9 +2,9 @@ package org.formation.zoo;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.formation.zoo.modele.Animal;
-import org.formation.zoo.modele.Cage;
-import org.formation.zoo.modele.Lion;
+import org.formation.zoo.modele.metier.Animal;
+import org.formation.zoo.modele.metier.Cage;
+import org.formation.zoo.modele.metier.Lion;
 import org.formation.zoo.modele.technique.CagePleineException;
 import org.formation.zoo.modele.technique.PorteException;
 import org.junit.jupiter.api.Test;

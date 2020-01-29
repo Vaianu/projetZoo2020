@@ -2,7 +2,7 @@ package org.formation.zoo;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.formation.zoo.modele.Singe;
+import org.formation.zoo.modele.metier.Singe;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

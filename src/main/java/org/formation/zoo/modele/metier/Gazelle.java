@@ -1,4 +1,4 @@
-package org.formation.zoo.modele;
+package org.formation.zoo.modele.metier;
 
 /**
  * Classe représentant une gazelle. 

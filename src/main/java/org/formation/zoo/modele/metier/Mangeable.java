@@ -1,4 +1,4 @@
-package org.formation.zoo.modele;
+package org.formation.zoo.modele.metier;
 
 /**
  * Contrat pour être mangeabe par le lion.

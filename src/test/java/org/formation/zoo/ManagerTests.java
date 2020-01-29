@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 
 import org.formation.zoo.controleur.Manager;
-import org.formation.zoo.modele.Cage;
+import org.formation.zoo.modele.metier.Cage;
 import org.junit.jupiter.api.Test;
 
 class ManagerTests {
