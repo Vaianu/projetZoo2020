@@ -25,10 +25,14 @@ public final class Zoo {
 	}
 	public void afficher()
 	{
-		for (int i=0; i < Manager.getInstance().getLesCages().size(); i++)
+		/*for (int i=0; i < Manager.getInstance().getLesCages().size(); i++)
 		{
 			System.out.println(Manager.getInstance().getLesCages().get(i));
-		}
+		}*/
+		
+		Manager.getInstance().getLesCages().stream().forEach(e->{
+			System.out.println(e);
+		});
 	}
 	/**
 	 * Permet de nourrir tous les animaux du zoo
