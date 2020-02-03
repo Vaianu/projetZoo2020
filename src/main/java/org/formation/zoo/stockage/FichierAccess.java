@@ -15,7 +15,7 @@ import org.formation.zoo.modele.technique.PorteException;
  * @author jacques
  *
  */
-public class FichierAccess{
+public class FichierAccess<T> implements Dao<T>{
 
 	/**
 	 * nom du fichier
@@ -24,7 +24,7 @@ public class FichierAccess{
 	/**
 	 * Collection des animaux lus
 	 */
-	private List<Cage> elts;
+	private List<T> elts;
 	/**
 	 * constructeur
 	 * @param f nom du fichier à lire et écrire
@@ -58,62 +58,19 @@ public class FichierAccess{
 		File f = new File(fichier);
 		try {
 			fic= new ObjectInputStream(new FileInputStream(fichier));
-			elts = (Vector<Cage>)fic.readObject();
+			elts = (Vector<T>)fic.readObject();
 			fic.close();
 		}
 		catch (IOException e) {
-			//fichier inexistant tout remplir à la main en appelant init
-			init();
+			DaoMemoire dm = new DaoMemoire(); // fichier inexistant
+        	elts = (List<T>) dm.lireTous(); 
 		}
 		catch(ClassNotFoundException ex)
 		{
 			ex.printStackTrace();
 		}
 	}
-	/**
-	 * méthode privée qui rempli la liste si aucun fichier n'est trouvé
-	 */
-	private void init()
-	{
-		Cage tmp = null;
-		elts = new Vector<Cage>();
-		try {
-			tmp = new Cage(101,201);
-			tmp.ouvrir();
-				tmp.entrer(new Singe("Cheeta",20,75));
-			tmp.fermer();
-			elts.add(tmp);
-			
-			tmp = new Cage(100,50);
-			tmp.ouvrir();
-			tmp.entrer(new Lion("Simba",3,20));
-			tmp.fermer();
-			elts.add(tmp);
-			
-			tmp = new Cage(150,250); //CAGE VIDE
-			tmp.fermer();
-			elts.add(tmp);
-			
-			tmp = new Cage(90,230);
-			tmp.ouvrir();
-			tmp.entrer(new Gazelle("Lady Gaga",20,75,10));
-			tmp.fermer();
-			elts.add(tmp);
-			
-			tmp = new Cage(60,100);
-			tmp.ouvrir();
-			tmp.entrer(new Singe("Baloo",30,50));
-			tmp.fermer();
-			elts.add(tmp);
-		} catch (PorteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (CagePleineException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	
-	}
+
 
 	public String getFichier() {
 		return fichier;
@@ -126,7 +83,8 @@ public class FichierAccess{
 	 * méthode qui permet l'accès en lecture à l'information (fait partie de l'api)
 	 * @return la collection lue
 	 */
-	public List<Cage> lireTous(){
+	@Override
+	public List<T> lireTous(){
 		if (elts == null){
 			read();
 		}
@@ -136,7 +94,8 @@ public class FichierAccess{
 	 * méthode qui permet l'accès en écriture à l'information (fait partie de l'api)
 	 * @param lesCages la collection à persister
 	 */
-	public void ecrireTous(List<Cage> lesCages) {
+	@Override
+	public void ecrireTous(List<T> lesCages) {
 		elts = lesCages;
 		write();
 		

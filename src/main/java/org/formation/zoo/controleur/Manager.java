@@ -1,5 +1,6 @@
 package org.formation.zoo.controleur;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.formation.zoo.modele.metier.Animal;
@@ -8,6 +9,7 @@ import org.formation.zoo.modele.metier.Mangeable;
 import org.formation.zoo.modele.technique.BeurkException;
 import org.formation.zoo.modele.technique.CagePleineException;
 import org.formation.zoo.modele.technique.PorteException;
+import org.formation.zoo.stockage.DaoFactory;
 import org.formation.zoo.stockage.FichierAccess;
 
 /**
@@ -20,7 +22,7 @@ public final class Manager {
 	 * Vecteur de Cages. C'est la COMPOSITION.
 	 */
 	private List<Cage> lesCages;
-	private FichierAccess acces;
+	private FichierAccess<Cage> acces;
 	
 	/**
 	 * pour SINGLETON
@@ -56,21 +58,29 @@ public final class Manager {
 	 * 
 	 * @return un tableau des cages d'animaux
 	 */
+	@Deprecated
 	public List<Cage> getLesCages()
 	{
 		return lesCages;
+	}
+	/**
+	 * 
+	 * @return un tableau des informations des cages et des animaux (position x et y de la cage, nom, age, poids des animaux)
+	 */
+	public List<String> afficher()
+	{
+		List<String> infosCagesAnimaux = new ArrayList<String>();
+		lesCages.stream().forEach(e->{
+			infosCagesAnimaux.add(e.toString());
+		});
+		return infosCagesAnimaux;
+		
 	}
 	/**
 	 * Permet de nourrir tous les animaux du zoo
 	 */
 	public void nourrir ()
 	{
-		/*for (int i = 0; i < lesCages.size(); i++) {
-			if (lesCages.get(i).getOccupant() != null)
-			{
-				lesCages.get(i).getOccupant().manger();
-			}
-		}*/
 		lesCages.stream().forEach(e->{
 			if (e.getOccupant() != null)
 				e.getOccupant().manger();
