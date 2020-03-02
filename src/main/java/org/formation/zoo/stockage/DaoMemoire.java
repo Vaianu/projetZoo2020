@@ -2,10 +2,6 @@ package org.formation.zoo.stockage;
 
 import java.util.List;
 import java.util.Vector;
-
-import org.formation.zoo.modele.metier.Cage;
-import org.formation.zoo.modele.technique.CagePleineException;
-import org.formation.zoo.modele.technique.PorteException;
 import org.formation.zoo.service.CagePOJO;
 
 public class DaoMemoire implements Dao<CagePOJO> {

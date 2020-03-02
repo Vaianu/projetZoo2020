@@ -3,13 +3,6 @@ import java.io.*;
 import java.util.List;
 import java.util.Vector;
 
-import org.formation.zoo.modele.metier.Cage;
-import org.formation.zoo.modele.metier.Gazelle;
-import org.formation.zoo.modele.metier.Lion;
-import org.formation.zoo.modele.metier.Singe;
-import org.formation.zoo.modele.technique.CagePleineException;
-import org.formation.zoo.modele.technique.PorteException;
-
 /**
  * Classe technique qui gère les accès fichier pour la sauvegarde des animaux du zoo.
  * @author jacques
