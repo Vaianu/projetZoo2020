@@ -7,10 +7,13 @@ import org.formation.zoo.modele.metier.Animal;
 import org.formation.zoo.modele.metier.Cage;
 import org.formation.zoo.modele.metier.Mangeable;
 import org.formation.zoo.modele.technique.BeurkException;
+import org.formation.zoo.modele.technique.CageManagee;
 import org.formation.zoo.modele.technique.CagePleineException;
 import org.formation.zoo.modele.technique.PorteException;
+import org.formation.zoo.service.CagePOJO;
+import org.formation.zoo.stockage.Dao;
 import org.formation.zoo.stockage.DaoFactory;
-import org.formation.zoo.stockage.FichierAccess;
+import org.formation.zoo.utilitaires.Conversion;
 
 /**
  * SINGLETON et une FACADE
@@ -21,8 +24,8 @@ public final class Manager {
 	/**
 	 * Vecteur de Cages. C'est la COMPOSITION.
 	 */
-	private List<Cage> lesCages;
-	private FichierAccess<Cage> acces;
+	private List<CageManagee> lesCages;
+	private Dao acces;
 	
 	/**
 	 * pour SINGLETON
@@ -33,7 +36,7 @@ public final class Manager {
 	 */
 	private Manager() {
 		lesCages = null;
-		acces = new FichierAccess("zoo.data");
+		acces = DaoFactory.getInstance().getDao();
 		init();	
 	}
 	/**
@@ -52,16 +55,12 @@ public final class Manager {
 	 */
 	private void init()
 	{
-		lesCages = acces.lireTous();
-	}
-	/**
-	 * 
-	 * @return un tableau des cages d'animaux
-	 */
-	@Deprecated
-	public List<Cage> getLesCages()
-	{
-		return lesCages;
+		List<CagePOJO> tmp = null;
+		tmp = acces.lireTous();
+		lesCages = new ArrayList<CageManagee>();
+		for (CagePOJO cagePOJO : tmp) {
+			lesCages.add(new CageManagee(cagePOJO, acces));
+		}
 	}
 	/**
 	 * 
@@ -81,10 +80,9 @@ public final class Manager {
 	 */
 	public void nourrir ()
 	{
-		lesCages.stream().forEach(e->{
-			if (e.getOccupant() != null)
-				e.getOccupant().manger();
-		});
+		for (CageManagee cageManagee : lesCages) {
+			cageManagee.nourrir();
+		}
 	}
 	/**
 	 * 
@@ -92,7 +90,7 @@ public final class Manager {
 	 * @param mange indice de la cage de la proie
 	 * @return le texte sur ce qu'il s'est passé
 	 */
-	public String devorer(int mangeur, int mange)
+	/*public String devorer(int mangeur, int mange)
 	{
 		Mangeable laBeteConvoitee = null;
 		String s = "INCOMPATIBLE";
@@ -125,9 +123,11 @@ public final class Manager {
 				}
 		}
 		return s;
-	}
-	public void fermer() {
-		acces.ecrireTous(lesCages);
-	}
+	}*/
+//
+//		public void fermer() {
+		
+//		acces.ecrireTous(lesCages);
+//	}
 
 }

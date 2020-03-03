@@ -27,11 +27,23 @@ public final class Conversion {
 		Constructor<?> construct = null;
 		
 		ret = new Cage(cp.getX(), cp.getY());
+		// SI un occupant
 		if (cp.getCodeAnimal() != null) {
-			try {
-				laClasseDeLaBete = Class.forName(MODELE+cp.getCodeAnimal());
+			// SI on a une gazelle
+			if (cp.getCodeAnimal().equals("Gazelle")) {
+				lesTypes = new Class<?>[4];
+				lesValeurs = new Object[4];
+				lesTypes[3] = int.class;
+				lesValeurs[3] = cp.getGaz().getLgCornes();
+			}
+			else
+			{
 				lesTypes = new Class<?>[3];
 				lesValeurs = new Object[3];
+			}
+			try {
+				laClasseDeLaBete = Class.forName(MODELE+cp.getCodeAnimal());
+
 				lesTypes[0] = String.class;
 				lesTypes[1] = int.class;
 				lesTypes[2] = double.class;

@@ -8,6 +8,7 @@ public class CagePOJO {
 	private String nom;
 	private int age;
 	private double poids;
+	private GazellePOJO gaz;
 	
 	public CagePOJO() {
 		x = 0;
@@ -17,6 +18,7 @@ public class CagePOJO {
 		nom = null;
 		age = 0;
 		poids = 0;
+		gaz = null;
 	}
 
 	public int getX() {
@@ -78,7 +80,15 @@ public class CagePOJO {
 	@Override
 	public String toString() {
 		return "CagePOJO [x=" + x + ", y=" + y + ", cle=" + cle + ", codeAnimal=" + codeAnimal + ", nom=" + nom
-				+ ", age=" + age + ", poids=" + poids + "]";
+				+ ", age=" + age + ", poids=" + poids + "]" + gaz;
+	}
+
+	public GazellePOJO getGaz() {
+		return gaz;
+	}
+
+	public void setGaz(GazellePOJO gaz) {
+		this.gaz = gaz;
 	}
 
 }

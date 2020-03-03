@@ -125,13 +125,18 @@ public class Cage implements Serializable{
 	public void setOuvert(boolean ouvert) {
 		this.ouvert = ouvert;
 	}
+	public void nourrir() {
+		if(getOccupant() != null) {
+			getOccupant().manger();
+		}
+	}
 	@Override
 	public String toString() {
 		String ret = null;
 		ret =  String.join("", "Cage [x=", Integer.toString(x), ", y=" , Integer.toString(y),"]");
 		if (occupant != null)
 		{
-			ret = String.join("----", ret, occupant.getInfos());
+			ret = String.join("----", ret, occupant.toString());
 		}
 		else
 		{

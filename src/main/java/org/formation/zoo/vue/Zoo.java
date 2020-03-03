@@ -12,7 +12,6 @@ public final class Zoo {
 	
 		
 	public Zoo() {
-		//Manager.getInstance();
 	}
 	/**
 	 * Méthode privée qui charge le modèle.
@@ -24,8 +23,6 @@ public final class Zoo {
 		Manager.getInstance().afficher().forEach(e->{
 			System.out.println(e.toString());
 		});
-		/*ArrayStoreException.asList(Manager.getInstance().afficher()).
-			stream().forEach(System::ou))*/
 	}
 	/**
 	 * Permet de nourrir tous les animaux du zoo
@@ -40,14 +37,14 @@ public final class Zoo {
 	 * @param mange indice de la cage de la proie
 	 * @return le texte sur ce qu'il s'est passé
 	 */
-	public void devorer(int mangeur, int mange)
+	/*public void devorer(int mangeur, int mange)
 	{
 		System.out.println(Manager.getInstance().devorer(mangeur, mange));
-	}
+	}*/
 	
-	public void fermer() {
+	/*public void fermer() {
 		Manager.getInstance().fermer();
-	}
+	}*/
 	
 	public static void main(String[] args) {
 		Zoo z = null;
@@ -57,12 +54,10 @@ public final class Zoo {
 		System.out.println("on fait manger tous les animaux");
 		z.nourrir();
 		z.afficher();
-		System.out.println("on tente de faire manger un animal par un autre");
 		//System.out.println(z.devorer(1,0));
-		z.devorer(1, 0);
-		z.afficher();
+		//z.devorer(1, 0);
 		System.out.println("on ferme le zoo");
-		z.fermer();
+		//z.fermer();
 	}
 
 }
