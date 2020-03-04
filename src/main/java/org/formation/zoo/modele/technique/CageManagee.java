@@ -7,6 +7,7 @@ import org.formation.zoo.stockage.Dao;
 import org.formation.zoo.utilitaires.Conversion;
 
 public final class CageManagee {
+	private final static String IMAGES="./images/";
 	private Cage controleur;
 	private CagePOJO vue;
 	private Dao<CagePOJO> modele;
@@ -30,6 +31,20 @@ public final class CageManagee {
 	@Override
 	public String toString() {
 		return controleur.toString();
+	}
+	public CagePOJO getVue() {
+		String tmp = null;
+		if(vue.getCodeAnimal() != null) {
+			tmp = String.join(" ",vue.getNom(),Integer.toString(vue.getAge()),"ans",Double.toString(vue.getPoids()),"kg");
+			vue.setPancarte(tmp);
+			tmp = String.join("", IMAGES,vue.getCodeAnimal().toLowerCase()+".gif");
+		}else
+		{
+			vue.setPancarte("cage vide");
+			tmp = String.join("", IMAGES,"cage.jpg");
+		}
+		vue.setImage(tmp);
+		return vue;
 	}
 
 }

@@ -20,9 +20,15 @@ public final class Zoo {
 	
 	public void afficher()
 	{
-		Manager.getInstance().afficher().forEach(e->{
+		/*Manager.getInstance().afficher().forEach(e->{
 			System.out.println(e.toString());
-		});
+		});*/
+		
+		String[] infosAnimaux = Manager.getInstance().afficher();
+		for(int i=0; i<infosAnimaux.length; i++)
+		{
+			System.out.println(infosAnimaux[i].toString());
+		}
 	}
 	/**
 	 * Permet de nourrir tous les animaux du zoo

@@ -10,6 +10,9 @@ public class CagePOJO {
 	private double poids;
 	private GazellePOJO gaz;
 	
+	private String pancarte;
+	private String image;
+	
 	public CagePOJO() {
 		x = 0;
 		y = 0;
@@ -89,6 +92,22 @@ public class CagePOJO {
 
 	public void setGaz(GazellePOJO gaz) {
 		this.gaz = gaz;
+	}
+
+	public String getPancarte() {
+		return pancarte;
+	}
+
+	public void setPancarte(String pancarte) {
+		this.pancarte = pancarte;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 }
