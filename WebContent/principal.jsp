@@ -33,18 +33,12 @@ String texte = null;
 	texte = String.join("", "<div id=\"animal", Integer.toString(i), "\" style=\"position:absolute;top:", 
 	Integer.toString(zanimaux.get(i).getY()), "px;left:", Integer.toString(zanimaux.get(i).getX()), "px\">");
 	out.print(texte);
+	texte = String.join("", "<img alt=\"\" src=\"", zanimaux.get(i).getImage(), "\" class=\"animal\"/>");
+	out.print(texte);
+	texte = String.join("", "<div class=\"afficheAnimal\">", zanimaux.get(i).getPancarte(), "</div></div>");
+	out.print(texte);
 }
 %>
-	<img alt="" src="images/lion.gif" class="animal"/>
-
-	<div class="afficheAnimal" >Clarence 4 ans 154.3 kg</div>
-	</div>
-</div>
-<div id="animal2" style="position:absolute;top:240px;left:200px">
-<img alt="" src="images/gazelle.gif" class="animal"/>
-
-<div class="afficheAnimal" >GagaZeleZele 3 ans 48.3 kg</div>
-</div>
 </article>
 <footer>
 Etat en temps reel...
