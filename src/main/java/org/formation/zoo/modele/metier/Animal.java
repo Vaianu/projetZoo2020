@@ -104,7 +104,7 @@ public abstract class Animal implements Individu {
 				nom,
 				", j'ai",
 				Integer.toString(age),
-				"ans, je pÃ¨se",
+				"ans, je pèse",
 				Double.toString(poids),
 				"kg"
 				);

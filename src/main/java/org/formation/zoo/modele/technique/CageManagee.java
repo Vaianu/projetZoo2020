@@ -18,6 +18,7 @@ public final class CageManagee {
 	}
 	public void entrer(Animal a) throws PorteException, CagePleineException {
 		controleur.entrer(a);
+		vue.setAge(a.getAge());
 		//mettre à jour le pojo
 		//modifier le pojo
 	}

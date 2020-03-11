@@ -68,8 +68,16 @@ public class DAOJDBCImpl implements Dao<CagePOJO> {
 
 	@Override
 	public void modifier(int cle, CagePOJO obj) {
-		// TODO Auto-generated method stub
-		
+		String req = "UPDATE animal SET codeAnimal='" + obj.getCodeAnimal() + "', nom='" + obj.getNom() + "', age=" + obj.getAge()
+				+ ", poids=" + obj.getPoids() + ", x=" + obj.getX() + ", y=" + obj.getY() + " WHERE idAnimal=" + cle;
+		Statement st = null;
+		try {
+			st = connecteur.getConn().createStatement();
+			st.executeUpdate(req);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
