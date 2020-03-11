@@ -75,27 +75,46 @@ public class DAOJDBCImpl implements Dao<CagePOJO> {
 			st = connecteur.getConn().createStatement();
 			st.executeUpdate(req);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void effacer(int cle) {
-		// TODO Auto-generated method stub
-		
+		String req = "DELETE FROM animal WHERE idAnimal=" + cle;
+		Statement st = null;
+		try {
+			st = connecteur.getConn().createStatement();
+			st.executeUpdate(req);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void effacer(CagePOJO obj) {
-		// TODO Auto-generated method stub
+		String req = "DELETE FROM animal WHERE idAnimal=" + obj.getCle();
+		Statement st = null;
+		try {
+			st = connecteur.getConn().createStatement();
+			st.executeUpdate(req);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
 	public void ajouter(CagePOJO obj) {
-		// TODO Auto-generated method stub
-		
+		String req = "INSERT INTO animal (codeAnimal,nom,age,poids,x,y) VALUES('"+obj.getCodeAnimal()+"','"+obj.getNom()+"',"+obj.getAge()
+				+","+obj.getPoids()+","+obj.getX()+","+obj.getY()+")";
+		Statement st = null;
+		try {
+			st = connecteur.getConn().createStatement();
+			st.executeUpdate(req);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
