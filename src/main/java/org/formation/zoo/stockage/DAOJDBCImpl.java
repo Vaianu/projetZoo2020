@@ -3,9 +3,11 @@ package org.formation.zoo.stockage;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import org.formation.zoo.modele.technique.CageManagee;
 import org.formation.zoo.service.CagePOJO;
 import org.formation.zoo.service.GazellePOJO;
 
@@ -62,8 +64,19 @@ public class DAOJDBCImpl implements Dao<CagePOJO> {
 
 	@Override
 	public void ecrireTous(List<CagePOJO> elts) {
-		// TODO Auto-generated method stub
 		
+		for (CagePOJO cagePOJO : elts) {
+			String req = "INSERT INTO animal (codeAnimal,nom,age,poids,x,y)"
+					+ " VALUES('"+cagePOJO.getCodeAnimal()+"','"+cagePOJO.getNom()+"',"+cagePOJO.getAge()
+					+","+cagePOJO.getPoids()+","+cagePOJO.getX()+","+cagePOJO.getY()+")";
+			Statement st = null;
+			try {
+				st = connecteur.getConn().createStatement();
+				st.executeUpdate(req);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	@Override
