@@ -60,10 +60,10 @@ public final class Zoo {
 		System.out.println("on fait manger tous les animaux");
 		z.nourrir();
 		z.afficher();
-		//System.out.println(z.devorer(1,0));
-		//z.devorer(1, 0);
+//		System.out.println(z.devorer(1,0));
+//		z.devorer(1, 0);
 		System.out.println("on ferme le zoo");
-		//z.fermer();
+//		z.fermer();
 	}
 
 }
