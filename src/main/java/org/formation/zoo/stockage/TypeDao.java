@@ -1,6 +1,6 @@
 package org.formation.zoo.stockage;
 
 public enum TypeDao {
-	DAOJDBC(),
+	DAOJDBC,
 	DAOMEMOIRE;
 }
