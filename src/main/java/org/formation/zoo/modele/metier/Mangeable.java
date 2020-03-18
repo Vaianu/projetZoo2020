@@ -1,8 +1,8 @@
 package org.formation.zoo.modele.metier;
 
 /**
- * Contrat pour Ãªtre mangeabe par le lion.
- * @author j.vincensini
+ * Contrat pour être mangeabe par le lion.
+ * @author SM Vaianu
  *
  */
 public interface Mangeable {

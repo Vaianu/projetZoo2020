@@ -1,7 +1,7 @@
 package org.formation.zoo.modele.technique;
 
 /**
- * exception pour signaler qu'un animal n'aime pas ce qu'on lui donne Ã  manger
+ * exception pour signaler qu'un animal n'aime pas ce qu'on lui donne à  manger
  * @author j.Vincensini
  *
  */
@@ -13,7 +13,7 @@ public class BeurkException extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	public BeurkException() {
-		super("Je n'aime pas Ã§a");
+		super("Je n'aime pas ça");
 	}
 
 	public BeurkException(String raison) {

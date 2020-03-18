@@ -37,7 +37,7 @@ public final class Zoo {
 	{
 		Manager.getInstance().nourrir();
 	}
-	/**
+	/*/**
 	 * 
 	 * @param mangeur indice de l'animal mangeur (sa cage)
 	 * @param mange indice de la cage de la proie

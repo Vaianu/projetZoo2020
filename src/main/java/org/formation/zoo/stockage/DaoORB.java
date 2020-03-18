@@ -36,8 +36,4 @@ public class DaoORB {
 	public Connection getConn() {
 		return conn;
 	}
-	
-	public static void main(String[] args) {
-		DaoORB dao = new DaoORB();
-	}
 }

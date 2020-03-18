@@ -3,20 +3,23 @@ package org.formation.zoo.stockage;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import org.formation.zoo.modele.technique.CageManagee;
 import org.formation.zoo.service.CagePOJO;
 import org.formation.zoo.service.GazellePOJO;
 
+/**
+ * @author SM Vaianu
+ *
+ */
 public class DAOJDBCImpl implements Dao<CagePOJO> {
 	private DaoORB connecteur;
 	public DAOJDBCImpl() {
 		connecteur = new DaoORB();
 	}
 
+	
 	@Override
 	public List<CagePOJO> lireTous() {
 		List<CagePOJO> ret = null;
@@ -81,8 +84,9 @@ public class DAOJDBCImpl implements Dao<CagePOJO> {
 
 	@Override
 	public void modifier(int cle, CagePOJO obj) {
-		String req = "UPDATE animal SET codeAnimal='" + obj.getCodeAnimal() + "', nom='" + obj.getNom() + "', age=" + obj.getAge()
-				+ ", poids=" + obj.getPoids() + ", x=" + obj.getX() + ", y=" + obj.getY() + " WHERE idAnimal=" + cle;
+		String req = "UPDATE animal SET codeAnimal='" + obj.getCodeAnimal() + "', nom='" + obj.getNom() 
+			+ "', age=" + obj.getAge() + ", poids=" + obj.getPoids() + ", x=" + obj.getX() + ", y=" + obj.getY() 
+			+ " WHERE idAnimal=" + cle;
 		Statement st = null;
 		try {
 			st = connecteur.getConn().createStatement();
@@ -119,7 +123,8 @@ public class DAOJDBCImpl implements Dao<CagePOJO> {
 
 	@Override
 	public void ajouter(CagePOJO obj) {
-		String req = "INSERT INTO animal (codeAnimal,nom,age,poids,x,y) VALUES('"+obj.getCodeAnimal()+"','"+obj.getNom()+"',"+obj.getAge()
+		String req = "INSERT INTO animal (codeAnimal,nom,age,poids,x,y) "
+				+ "VALUES('"+obj.getCodeAnimal()+"','"+obj.getNom()+"',"+obj.getAge()
 				+","+obj.getPoids()+","+obj.getX()+","+obj.getY()+")";
 		Statement st = null;
 		try {

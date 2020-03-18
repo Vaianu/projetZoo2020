@@ -21,7 +21,7 @@ public class DaoMemoire implements Dao<CagePOJO> {
 		
 	}
 	/**
-	 * mÃ©thode privÃ©e qui rempli la liste si aucun fichier n'est trouvÃ©
+	 * méthode privée qui rempli la liste si aucun fichier n'est trouvé
 	 */
 	private void init()
 	{

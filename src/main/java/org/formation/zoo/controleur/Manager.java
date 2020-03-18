@@ -4,22 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import org.formation.zoo.modele.metier.Animal;
-import org.formation.zoo.modele.metier.Cage;
-import org.formation.zoo.modele.metier.Mangeable;
-import org.formation.zoo.modele.technique.BeurkException;
 import org.formation.zoo.modele.technique.CageManagee;
-import org.formation.zoo.modele.technique.CagePleineException;
-import org.formation.zoo.modele.technique.PorteException;
 import org.formation.zoo.service.CagePOJO;
 import org.formation.zoo.stockage.Dao;
 import org.formation.zoo.stockage.DaoFactory;
 import org.formation.zoo.stockage.TypeDao;
-import org.formation.zoo.utilitaires.Conversion;
 
 /**
  * SINGLETON et une FACADE
- * @author vu.samgmouit
+ * @author SM Vaianu
  *
  */
 public final class Manager {
@@ -27,20 +20,22 @@ public final class Manager {
 	 * Vecteur de Cages. C'est la COMPOSITION.
 	 */
 	private List<CageManagee> lesCages;
-	private Dao acces;
+	private Dao<CagePOJO> acces;
 	
 	/**
 	 * pour SINGLETON
 	 */
 	private static Manager instance = null;
+	
 	/**
-	 * constructeur prive ==> SINGLETON
+	 * constructeur prive = SINGLETON
 	 */
 	private Manager() {
 		lesCages = null;
 		acces = DaoFactory.getInstance().getDao(TypeDao.DAOJDBC);
 		init();	
 	}
+	
 	/**
 	 * Singleton
 	 * @return l'instance unique du singleton
@@ -51,6 +46,7 @@ public final class Manager {
 		}
 		return instance;
 	}
+	
 	/**
 	 * Méthode privée qui charge le modèle.
 	 * Pour l'instant elle instancie les animaux
@@ -64,6 +60,7 @@ public final class Manager {
 			lesCages.add(new CageManagee(cagePOJO, acces));
 		}
 	}
+	
 	/**
 	 * 
 	 * @return un tableau des informations des cages et des animaux (position x et y de la cage, nom, age, poids des animaux)
@@ -80,9 +77,14 @@ public final class Manager {
 		return ret;
 		
 	}
+	
+	/**
+	 * 
+	 * @return Vecteur CagePOJO
+	 */
 	public List<CagePOJO> getAnimaux(){
 		List<CagePOJO> ret = null;
-		ret = new Vector<CagePOJO>();
+		ret = new Vector<>();
 		for (CageManagee cm : lesCages) {
 			ret.add(cm.getVue());
 		}

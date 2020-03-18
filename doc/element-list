@@ -1,6 +1,7 @@
-org.formation.zoo
 org.formation.zoo.controleur
 org.formation.zoo.modele.metier
 org.formation.zoo.modele.technique
+org.formation.zoo.service
 org.formation.zoo.stockage
+org.formation.zoo.utilitaires
 org.formation.zoo.vue

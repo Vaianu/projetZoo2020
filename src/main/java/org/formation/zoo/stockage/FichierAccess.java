@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Vector;
 
 /**
- * Classe technique qui g√®re les acc√®s fichier pour la sauvegarde des animaux du zoo.
+ * Classe technique qui gËre les accÈs fichier pour la sauvegarde des animaux du zoo.
  * @author jacques
  *
  */
@@ -20,7 +20,7 @@ public class FichierAccess<T> implements Dao<T>{
 	private List<T> elts;
 	/**
 	 * constructeur
-	 * @param f nom du fichier √† lire et √©crire
+	 * @param f nom du fichier ‡† lire et Ècrire
 	 */
 	public FichierAccess(String f)
 	{
@@ -30,7 +30,7 @@ public class FichierAccess<T> implements Dao<T>{
 	}
 
 	/**
-	 * m√©thode priv√©e d'√©criture de la collection
+	 * mÈthode privÈe d'Ècriture de la collection
 	 */
 	private void write()
 	{
@@ -44,7 +44,7 @@ public class FichierAccess<T> implements Dao<T>{
 	        }			
 	}
 	/**
-	 * m√©thode priv√©e de lecture de la collection dans, le fichier<s
+	 * mÈthode privÈe de lecture de la collection dans le fichier
 	 */
 	private void read() {
 	    ObjectInputStream fic = null;
@@ -84,7 +84,7 @@ public class FichierAccess<T> implements Dao<T>{
 		return elts;
 	}
 	/**
-	 * m√©thode qui permet l'acc√®s en √©criture √† l'information (fait partie de l'api)
+	 * mÈthode qui permet l'accÈs en Ècriture ‡ l'information (fait partie de l'api)
 	 * @param lesCages la collection √† persister
 	 */
 	@Override

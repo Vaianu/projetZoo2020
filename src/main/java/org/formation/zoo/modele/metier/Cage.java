@@ -7,8 +7,8 @@ import org.formation.zoo.modele.technique.PorteException;
 
 /**
  *  Une cage du zoo. 
- *  Peut Ãªtre vide ou contenir un seul animal (ASSOCIATION)
- * @author j.Vincensini
+ *  Peut être vide ou contenir un seul animal (ASSOCIATION)
+ * @author SM Vaianu
  * @version 1.0
  * @since 1.0
  *
@@ -19,7 +19,7 @@ public class Cage implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * L'associÃ© dans la relation
+	 * L'associé dans la relation
 	 */
 	private Animal occupant;
 	/**
@@ -27,7 +27,7 @@ public class Cage implements Serializable{
 	 */
 	private int x;
 	/**
-	 * ordonnÃ©e de la cage (en pixels)
+	 * ordonné de la cage (en pixels)
 	 */
 	private int y;
 	/**
@@ -48,8 +48,8 @@ public class Cage implements Serializable{
 	/**
 	 * 
 	 * @param a l'animal que l'on veut faire entrer
-	 * @throws PorteException si la cage est fermÃ©e
-	 * @throws CagePleineException  si la cage est dÃ©jÃ  occupÃ©e
+	 * @throws PorteException si la cage est fermée
+	 * @throws CagePleineException  si la cage est déja occupée
 	 */
 	public void entrer(Animal a) throws PorteException, CagePleineException
 	{
@@ -57,14 +57,14 @@ public class Cage implements Serializable{
 		{
 			throw new PorteException();
 		}
-		if (occupant != null) { //dÃ©jÃ  occupÃ©e
+		if (occupant != null) { //déja occupée
 			throw new CagePleineException();
 		}
 		setOccupant(a);
 	}
 	/**
 	 * 
-	 * @return l'animal qui Ã©tait dans la cage.
+	 * @return l'animal qui était dans la cage.
 	 * Si la cage est vide retourne null
 	 * @throws PorteException si la cage n'est pas ouverte
 	 */

@@ -1,9 +1,9 @@
 package org.formation.zoo.modele.metier;
 
 /**
- * Classe reprÃ©sentant une gazelle. 
- * C'est une proie pour le lion, donc elle implÃ©mente l'interface Mangeable
- * @author j.vincensini
+ * Classe représentant une gazelle. 
+ * C'est une proie pour le lion, donc elle implémente l'interface Mangeable
+ * @author SM Vaianu
  *
  */
 public final class Gazelle extends Animal implements Mangeable{
