@@ -14,6 +14,7 @@ import org.formation.zoo.modele.technique.PorteException;
 import org.formation.zoo.service.CagePOJO;
 import org.formation.zoo.stockage.Dao;
 import org.formation.zoo.stockage.DaoFactory;
+import org.formation.zoo.stockage.TypeDao;
 import org.formation.zoo.utilitaires.Conversion;
 
 /**
@@ -37,7 +38,7 @@ public final class Manager {
 	 */
 	private Manager() {
 		lesCages = null;
-		acces = DaoFactory.getInstance().getDao();
+		acces = DaoFactory.getInstance().getDao(TypeDao.DAOJDBC);
 		init();	
 	}
 	/**

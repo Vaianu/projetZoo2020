@@ -10,10 +10,19 @@ public class DaoFactory {
 	public static DaoFactory getInstance() {
 		return instance;
 	}
-	public Dao<CagePOJO> getDao(){
+	public Dao<CagePOJO> getDao(TypeDao typeDAO){
 //		return new FichierAccess<CagePOJO>("zoo.data");
-		return new DAOJDBCImpl();
+//		return new DAOJDBCImpl();
 //		return new DaoMemoire();
+		switch (typeDAO) {
+		case DAOJDBC:
+			return new DAOJDBCImpl();
+		case DAOMEMOIRE:
+			return new DaoMemoire();
+
+		default:
+			return null;
+		}
 	}
 
 }
