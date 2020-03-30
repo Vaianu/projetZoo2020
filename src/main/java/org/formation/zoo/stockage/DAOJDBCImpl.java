@@ -67,12 +67,23 @@ public class DAOJDBCImpl implements Dao<CagePOJO> {
 
 	@Override
 	public void ecrireTous(List<CagePOJO> elts) {
+		// Vide la table
+		String req = "TRUNCATE TABLE animal";
+		Statement st = null;
+		try {
+			st = connecteur.getConn().createStatement();
+			st.executeUpdate(req);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
+		// Remplit à nouveau
 		for (CagePOJO cagePOJO : elts) {
-			String req = "INSERT INTO animal (codeAnimal,nom,age,poids,x,y)"
+			req = "INSERT INTO animal (codeAnimal,nom,age,poids,x,y)"
 					+ " VALUES('"+cagePOJO.getCodeAnimal()+"','"+cagePOJO.getNom()+"',"+cagePOJO.getAge()
 					+","+cagePOJO.getPoids()+","+cagePOJO.getX()+","+cagePOJO.getY()+")";
-			Statement st = null;
+			st = null;
 			try {
 				st = connecteur.getConn().createStatement();
 				st.executeUpdate(req);

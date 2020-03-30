@@ -6,7 +6,6 @@ import org.formation.zoo.service.CagePOJO;
 
 public class DaoMemoire implements Dao<CagePOJO> {
 	private List<CagePOJO> elts;
-	
 	public DaoMemoire() {
 		init();
 	}

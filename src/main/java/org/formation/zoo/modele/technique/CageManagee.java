@@ -20,6 +20,7 @@ public final class CageManagee {
 		controleur.entrer(a);
 		vue.setAge(a.getAge());
 		//mettre à jour le pojo
+		modele.ajouter(vue);
 		//modifier le pojo
 	}
 	public void nourrir() {

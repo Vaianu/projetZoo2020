@@ -73,7 +73,7 @@ public class FichierAccess<T> implements Dao<T>{
 		this.fichier = fichier;
 	}
 	/**
-	 * mÃ©thode qui permet l'accÃ¨s en lecture Ã  l'information (fait partie de l'api)
+	 * méthode qui permet l'accès en lecture à l'information (fait partie de l'api)
 	 * @return la collection lue
 	 */
 	@Override
