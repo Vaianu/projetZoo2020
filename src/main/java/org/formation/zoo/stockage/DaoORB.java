@@ -14,9 +14,10 @@ public class DaoORB {
 	public DaoORB() {
 		try {
 			prop = new Properties();
-			charger();
+//			charger();
 //			conn = DriverManager.getConnection(prop.getProperty("URL"),prop.getProperty("LOGIN"),prop.getProperty("PSWD"));
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/zoo","root","");
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -36,4 +37,8 @@ public class DaoORB {
 	public Connection getConn() {
 		return conn;
 	}
+	
+public static void main(String[] args) {
+	DaoORB dao = new DaoORB();
+}
 }

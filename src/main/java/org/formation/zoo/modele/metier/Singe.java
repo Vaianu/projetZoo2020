@@ -1,9 +1,9 @@
 package org.formation.zoo.modele.metier;
 
 /**
- * Classe concrète représentant un singe.
- * Elle est dérivable
- * @author SM Vaianu
+ * Classe concrÃ¨te reprÃ©sentant un singe.
+ * Elle est dÃ©rivable
+ * @author j.vincensini
  *
  */
 public class Singe extends Animal {
@@ -40,9 +40,5 @@ public class Singe extends Animal {
 	public void sauter()
 	{
 		
-	}
-
-	
-	
-	
+	}	
 }

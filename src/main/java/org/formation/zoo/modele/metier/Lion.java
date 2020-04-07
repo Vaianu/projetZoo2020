@@ -1,9 +1,9 @@
 package org.formation.zoo.modele.metier;
 
 /**
- * Classe concrète représentant un lion.
+ * Classe concrÃ¨te reprÃ©sentant un lion.
  * Elle est FINALE!!!!
- * @author SM Vaianu
+ * @author j.vincensini
  *
  */
 public final class Lion extends Animal {
@@ -72,8 +72,5 @@ public final class Lion extends Animal {
 	{
 		setPoids(getPoids()-0.7);
 	}
-
 	
-	
-
 }

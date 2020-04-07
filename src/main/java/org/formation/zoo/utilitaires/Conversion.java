@@ -11,7 +11,7 @@ import org.formation.zoo.service.CagePOJO;
 
 /**
  * classe boite à outils
- * @author Vaianu S.
+ * @author vu.samg mouit
  *
  */
 public final class Conversion {
@@ -21,16 +21,16 @@ public final class Conversion {
 	public static Cage pojoToCage(CagePOJO cp) {
 		Cage ret = null;
 		Animal bete = null;
-		Class<?> laClasseDeLaBete = null;
+		Class<?> laClassDeLaBete = null;
 		Class<?> lesTypes[] = null;
 		Object lesValeurs[] = null;
 		Constructor<?> construct = null;
 		
 		ret = new Cage(cp.getX(), cp.getY());
-		// SI un occupant
+		//SI un occupant
 		if (cp.getCodeAnimal() != null) {
-			// SI on a une gazelle
-			if (cp.getCodeAnimal().equals("Gazelle")) {
+			//SI on a une gazelle
+			if(cp.getCodeAnimal().equals("Gazelle")) {
 				lesTypes = new Class<?>[4];
 				lesValeurs = new Object[4];
 				lesTypes[3] = int.class;
@@ -42,26 +42,27 @@ public final class Conversion {
 				lesValeurs = new Object[3];
 			}
 			try {
-				laClasseDeLaBete = Class.forName(MODELE+cp.getCodeAnimal());
-
+				laClassDeLaBete = Class.forName(MODELE+cp.getCodeAnimal());
+				
 				lesTypes[0] = String.class;
 				lesTypes[1] = int.class;
 				lesTypes[2] = double.class;
 				lesValeurs[0] = cp.getNom();
 				lesValeurs[1] = cp.getAge();
 				lesValeurs[2] = cp.getPoids();
-				construct = laClasseDeLaBete.getConstructor(lesTypes);
-				bete = (Animal) construct.newInstance(lesValeurs);
+				construct = laClassDeLaBete.getConstructor(lesTypes); // retournent le tableau des constructeurs de cette classes
+				bete = (Animal) construct.newInstance(lesValeurs);	  // créé une nouvelle instance de Animal
 				ret.ouvrir();
 				ret.entrer(bete);
 				ret.fermer();
 			} catch (ClassNotFoundException e) {
+				// TODO: handle exception
 				e.printStackTrace();
 			} catch (NoSuchMethodException e) {
-				// TODO Auto-generated catch block
+				// TODO: handle exception
 				e.printStackTrace();
 			} catch (SecurityException e) {
-				// TODO Auto-generated catch block
+				// TODO: handle exception
 				e.printStackTrace();
 			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block

@@ -1,6 +1,6 @@
 <%@page import="org.formation.zoo.service.CagePOJO"%>
 <%@page import="java.util.List"%>
-<%@ page import="org.formation.zoo.controleur.Manager"%>
+<%@ page import="org.formation.zoo.controleur.Manager" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,12 +30,12 @@ String texte = null;
 %>
 <img  alt="mon zoo" src="images/plan.gif">
 <% for(int i=0; i<zanimaux.size(); i++){
-	texte = String.join("", "<div id=\"animal", Integer.toString(i), "\" style=\"position:absolute;top:", 
-	Integer.toString(zanimaux.get(i).getY()), "px;left:", Integer.toString(zanimaux.get(i).getX()), "px\">");
+	texte = String.join("", "<div id=\"animal",Integer.toString(i),"\" style=\"position:absolute;top:",
+	Integer.toString(zanimaux.get(i).getY()),"px;left:",Integer.toString(zanimaux.get(i).getX()),"px\">");
 	out.print(texte);
-	texte = String.join("", "<img alt=\"\" src=\"", zanimaux.get(i).getImage(), "\" class=\"animal\"/>");
+	texte = String.join("", "<img alt=\"\" src=\"",zanimaux.get(i).getImage(),"\" class=\"animal\"/>");
 	out.print(texte);
-	texte = String.join("", "<div class=\"afficheAnimal\">", zanimaux.get(i).getPancarte(), "</div></div>");
+	texte = String.join("", "<div class=\"afficheAnimal\" >",zanimaux.get(i).getPancarte(),"</div></div>");
 	out.print(texte);
 }
 %>

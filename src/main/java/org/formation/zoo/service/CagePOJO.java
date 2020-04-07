@@ -14,7 +14,7 @@ public class CagePOJO {
 	private String image;
 	
 	public CagePOJO() {
-		x = 0;
+		x= 0;
 		y = 0;
 		cle = 0;
 		codeAnimal = null;

@@ -7,7 +7,7 @@ import org.formation.zoo.service.CagePOJO;
 import org.formation.zoo.utilitaires.Conversion;
 import org.junit.jupiter.api.Test;
 
-class ConversionTest {
+class ConversionTests {
 
 	@Test
 	void testPojoToCage() {

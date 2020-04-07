@@ -2,8 +2,13 @@ package org.formation.zoo;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 import org.formation.zoo.controleur.Manager;
 import org.formation.zoo.modele.metier.Animal;
+import org.formation.zoo.service.CagePOJO;
+import org.formation.zoo.stockage.Dao;
+import org.formation.zoo.stockage.DaoFactory;
 import org.formation.zoo.vue.Zoo;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -38,13 +43,29 @@ class ZooTests {
 	
 	@Test
 	void testNourrir() {
-		// objet a reference sur l'objet lion
-		/*Animal a = Manager.getInstance().getLesCages().get(1).getOccupant();
-		a.dormir(); // diminue poids du lion pour eviter erreur quand il atteint son poids max pour assertEqual()
-		a.dormir();
-		double p = a.getPoids();
-		assertEquals(p, a.getPoids());
+		
+		/*CagePOJO obj = null;
+		obj = new CagePOJO();
+		obj.setCodeAnimal("Lion");
+		obj.setNom("Pai");
+		obj.setAge(12);
+		obj.setPoids(152.4);
+		obj.setX(100);
+		obj.setY(350);
+		
+		Dao<CagePOJO> cp = DaoFactory.getInstance().getDao();
+		cp.ajouter(obj);
+		
+		List<CagePOJO> listcp = null;	
+		listcp = cp.lireTous();
+		obj = listcp.get(listcp.size()-1);
+		
+		//Avant
+		assertEquals(152.4, listcp.get(listcp.size()-1).getPoids());
+		//Aprés
 		z.nourrir();
-		assertEquals(p+2.1, a.getPoids());*/
+		listcp = cp.lireTous();
+		assertEquals(154.5, listcp.get(listcp.size()-1).getPoids());
+		cp.effacer(obj);*/
 	}
 }

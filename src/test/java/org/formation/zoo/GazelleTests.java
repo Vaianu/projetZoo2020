@@ -3,6 +3,8 @@ package org.formation.zoo;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.formation.zoo.modele.metier.Gazelle;
+import org.formation.zoo.modele.metier.Lion;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -10,14 +12,25 @@ class GazelleTests {
 
 	static Gazelle gazelle;
 	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-		gazelle = new Gazelle("gaga",3,80,25);
+	static void setUpBeforeClass() {
+		gazelle = new Gazelle("Puanio",2,80,7);
 	}
 	
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
+	}
+
+	@Test
+	void testCourir() {
+		double p = gazelle.getPoids();
+		assertEquals(p, gazelle.getPoids());
+		gazelle.courir();
+		assertEquals(p-0.2, gazelle.getPoids());
+	}
+
 	@Test
 	void testGazelle() {
 		Gazelle g = new Gazelle();
-		assertNotNull(g);
 		assertEquals("GGGGG", g.getNom());
 		assertEquals(1, g.getAge());
 		assertEquals(30, g.getPoids());
@@ -26,26 +39,27 @@ class GazelleTests {
 
 	@Test
 	void testGazelleStringIntDoubleInt() {
-		Gazelle g = new Gazelle("zaza",5,110,30);
-		assertNotNull(g);
-		assertEquals("zaza", g.getNom());
-		assertEquals(5, g.getAge());
-		assertEquals(110, g.getPoids());
-		assertEquals(30, g.getLgCornes());
+		Gazelle g = new Gazelle("Puatoro",4,100,12);
+		assertEquals("Puatoro", g.getNom());
+		assertEquals(4, g.getAge());
+		assertEquals(100, g.getPoids());
+		assertEquals(12, g.getLgCornes());
 	}
-	
+
 	@Test
-	void testCourir() {
-		assertNotNull(gazelle);
-		double p = gazelle.getPoids();
-		assertEquals(p, gazelle.getPoids());
-		gazelle.courir();
-		assertEquals(p-0.2, gazelle.getPoids());
+	void testGetLgCornes() {
+		int lgcornes = gazelle.getLgCornes();
+		assertEquals(lgcornes, gazelle.getLgCornes());
+	}
+
+	@Test
+	void testSetLgCornes() {
+		gazelle.setLgCornes(8);
+		assertEquals(8, gazelle.getLgCornes());
 	}
 
 	@Test
 	void testManger() {
-		assertNotNull(gazelle);
 		double p = gazelle.getPoids();
 		assertEquals(p, gazelle.getPoids());
 		gazelle.manger();
@@ -54,7 +68,6 @@ class GazelleTests {
 
 	@Test
 	void testDormir() {
-		assertNotNull(gazelle);
 		double p = gazelle.getPoids();
 		assertEquals(p, gazelle.getPoids());
 		gazelle.dormir();
@@ -63,8 +76,8 @@ class GazelleTests {
 
 	@Test
 	void testPrelever() {
-		assertNotNull(gazelle);
 		double p = gazelle.getPoids();
+		assertEquals(p, gazelle.getPoids());
 		assertEquals(p/3, gazelle.prelever());
 	}
 

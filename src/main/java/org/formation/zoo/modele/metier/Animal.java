@@ -2,10 +2,10 @@ package org.formation.zoo.modele.metier;
 
 
 /**
- * Classe abstraite de base pour le modèle.
- * Elle regroupe les principaux attributs et leurs méthodes.
+ * Classe abstraite de base pour le modÃ¨le.
+ * Ele regroupe les principaux attributs et leurs mÃ©thodes.
  * 
- * @author SM Vaianu
+ * @author J.Vincensini
  * @see org.formation.zoo.modele.metier.Lion
  * @version 1.0
  *
@@ -16,7 +16,7 @@ public abstract class Animal implements Individu {
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * nom d'un animal
+	 * nom de l'animal
 	 */
 	private String nom;
 	/**
@@ -29,7 +29,7 @@ public abstract class Animal implements Individu {
 	private double poids;
 	/**
 	 * constante d'objet pour la limite de poids.
-	 * Initialisé dans le constructeur
+	 * InitialisÃ© dans le constructeur
 	 */
 	private final double LIMITE;
 	/**
@@ -137,8 +137,8 @@ public abstract class Animal implements Individu {
 	public void sauter() {
 
 	}
-	/**méthode vide car le comportement par défaut ne fait rien.
-	 * méthode OPTIONNELLE
+	/**mÃ©thode vide car le comportement par dÃ©faut ne fait rien.
+	 * mÃ©thode OPTIONNELLE
 	 * 
 	 */
 	@Override

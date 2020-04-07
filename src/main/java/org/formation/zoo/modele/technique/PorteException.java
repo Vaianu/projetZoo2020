@@ -1,7 +1,7 @@
 package org.formation.zoo.modele.technique;
 
 /**
- * Exception levée quand la porte d'une cage est fermée et qu'on veut faire entrer ou soritr un animal
+ * Exception levÃ©e quand la porte d'une cage est fermÃ©e et qu'on veut faire entrer ou soritr un animal
  * @author j.vincensini
  *
  */
@@ -13,7 +13,7 @@ public class PorteException extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	public PorteException() {
-		super("Problème de porte");
+		super("ProblÃ¨me de porte");
 	}
 
 	public PorteException(String raison) {

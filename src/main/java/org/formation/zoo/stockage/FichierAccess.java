@@ -3,8 +3,9 @@ import java.io.*;
 import java.util.List;
 import java.util.Vector;
 
-/**
- * Classe technique qui gère les accés fichier pour la sauvegarde des animaux du zoo.
+
+/**s vD
+ * Classe technique qui gÃ¨re les accÃ¨s fichier pour la sauvegarde des animaux du zoo.
  * @author jacques
  *
  */
@@ -20,7 +21,7 @@ public class FichierAccess<T> implements Dao<T>{
 	private List<T> elts;
 	/**
 	 * constructeur
-	 * @param f nom du fichier à  lire et écrire
+	 * @param f nom du fichier Ã  lire et Ã©crire
 	 */
 	public FichierAccess(String f)
 	{
@@ -30,7 +31,7 @@ public class FichierAccess<T> implements Dao<T>{
 	}
 
 	/**
-	 * méthode privée d'écriture de la collection
+	 * mÃ©thode privÃ©e d'Ã©criture de la collection
 	 */
 	private void write()
 	{
@@ -44,36 +45,27 @@ public class FichierAccess<T> implements Dao<T>{
 	        }			
 	}
 	/**
-	 * méthode privée de lecture de la collection dans le fichier
+	 * mÃ©thode privÃ©e de lecture de la collection dans, le fichier<s
 	 */
 	private void read() {
 	    ObjectInputStream fic = null;
-		File f = new File(fichier);
 		try {
 			fic= new ObjectInputStream(new FileInputStream(fichier));
 			elts = (Vector<T>)fic.readObject();
 			fic.close();
 		}
 		catch (IOException e) {
-			DaoMemoire dm = new DaoMemoire(); // fichier inexistant
-        	elts = (List<T>) dm.lireTous(); 
+			//fichier inexistant tout remplir Ã  la main en appelant init
+			DaoMemoire dm = new DaoMemoire();
+			elts = (List<T>) dm.lireTous();
 		}
 		catch(ClassNotFoundException ex)
 		{
 			ex.printStackTrace();
 		}
 	}
-
-
-	public String getFichier() {
-		return fichier;
-	}
-
-	public void setFichier(String fichier) {
-		this.fichier = fichier;
-	}
 	/**
-	 * méthode qui permet l'accès en lecture à l'information (fait partie de l'api)
+	 * mÃ©thode qui permet l'accÃ¨s en lecture Ã  l'information (fait partie de l'api)
 	 * @return la collection lue
 	 */
 	@Override
@@ -84,37 +76,45 @@ public class FichierAccess<T> implements Dao<T>{
 		return elts;
 	}
 	/**
-	 * méthode qui permet l'accés en écriture à l'information (fait partie de l'api)
+	 * mÃ©thode qui permet l'accÃ¨s en Ã©criture Ã  l'information (fait partie de l'api)
 	 * @param lesCages la collection Ã  persister
 	 */
 	@Override
 	public void ecrireTous(List<T> lesCages) {
-		elts = lesCages;
+		if(lesCages !=null) {
+			elts = lesCages;
+		}
 		write();
 		
 	}
 
 	@Override
 	public void modifier(int cle, T obj) {
-		// TODO Auto-generated method stub
-		
+		elts.set(cle, obj);
+		ecrireTous(elts);
 	}
 
 	@Override
 	public void effacer(int cle) {
-		// TODO Auto-generated method stub
-		
+		elts.remove(cle);
+		ecrireTous(elts);
 	}
 
 	@Override
 	public void effacer(T obj) {
-		// TODO Auto-generated method stub
-		
+		elts.remove(obj);
+		ecrireTous(elts);
 	}
 
 	@Override
 	public void ajouter(T obj) {
-		// TODO Auto-generated method stub
+		elts.add(obj);
+		ecrireTous(elts);
 		
+	}
+
+	@Override
+	public T lire(int cle) {
+		return elts.get(cle);	
 	}
 }

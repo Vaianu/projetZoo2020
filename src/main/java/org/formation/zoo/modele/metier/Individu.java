@@ -5,8 +5,8 @@ import java.io.Serializable;
 import org.formation.zoo.modele.technique.BeurkException;
 /**
  * @version 1.0
- * @author SM Vaianu
- * Interface de base de tout le modèle...
+ * @author j.Vincensini
+ * Interface de base de tout le modÃ¨le...
  * C'est le contrat de base.
  */
 public interface Individu extends Serializable{
