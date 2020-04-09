@@ -20,7 +20,7 @@ import org.formation.zoo.utilitaires.Conversion;
 
 /**
  * SINGLETON et une FACADE
- * @author vu.samgmouit
+ * @author vi.samgmouit
  *
  */
 

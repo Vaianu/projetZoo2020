@@ -11,7 +11,7 @@ import org.formation.zoo.service.CagePOJO;
 
 /**
  * classe boite à outils
- * @author vu.samg mouit
+ * @author v.samg mouit
  *
  */
 public final class Conversion {
