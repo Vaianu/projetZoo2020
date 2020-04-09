@@ -50,7 +50,8 @@ class ManagerTests {
 		double poids = lcp.get(0).getPoids();
 		Manager.getInstance().nourrir();
 		lcp = cp.lireTous();
-		assertEquals(poids+0.8, lcp.get(0).getPoids());
+		double res = poids+0.8;
+		assertEquals(res, lcp.get(0).getPoids());
 	}
 
 }
