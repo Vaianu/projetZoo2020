@@ -42,7 +42,7 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 		ret = new CagePOJO();
 		ret.setX(rs.getInt("x"));
 		ret.setY(rs.getInt("y"));
-		ret.setCle(rs.getInt("idAnimal"));
+		ret.setIdAnimal(rs.getInt("idAnimal"));
 		//SI QUELQU'UN
 		if(rs.getString("codeAnimal") != null) {
 			ret.setAge(rs.getInt("age"));
@@ -124,7 +124,7 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 			prepareeCage.setString(4,obj.getNom());
 			prepareeCage.setDouble(5,obj.getPoids());
 			prepareeCage.setInt(6,obj.getAge());	
-			prepareeCage.setInt(7,obj.getCle());
+			prepareeCage.setInt(7,obj.getIdAnimal());
 			nb = prepareeCage.executeUpdate();
 			if((obj.getCodeAnimal() != null) && (obj.getCodeAnimal().equals(GAZELLE))){
 				prepareeGazelle = connecteur.getConn().prepareStatement(requeteGazelle);
@@ -194,8 +194,8 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 	 */
 	@Override
 	public void effacer(CagePOJO obj) {
-		String requete = String.join(" ","delete from animal where idAnimal= ",Integer.toString(obj.getCle()),";"); 
-		String requeteGazelle =	 String.join(" ", "DELETE FROM animal WHERE idAnimal =",Integer.toString(obj.getCle()),";"); 
+		String requete = String.join(" ","delete from animal where idAnimal= ",Integer.toString(obj.getIdAnimal()),";"); 
+		String requeteGazelle =	 String.join(" ", "DELETE FROM animal WHERE idAnimal =",Integer.toString(obj.getIdAnimal()),";"); 
 		
 		Statement st = null;
 		try {
@@ -230,7 +230,7 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 	@Override
 	public void ajouter(CagePOJO obj) {
 		String requeteCage = String.join("", "insert into animal (idAnimal,codeAnimal, nom, age, poids, x, y) values (",
-					Integer.toString(obj.getCle()),",'",obj.getCodeAnimal(),"','",obj.getNom(),"',",Integer.toString(obj.getAge()),",",
+					Integer.toString(obj.getIdAnimal()),",'",obj.getCodeAnimal(),"','",obj.getNom(),"',",Integer.toString(obj.getAge()),",",
 					Double.toString(obj.getPoids()),",",Integer.toString(obj.getX()),
 					","+Integer.toString(obj.getY()),");");	
 		String requeteGazelle = null;
@@ -242,7 +242,7 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 			if(obj.getCodeAnimal().equals(GAZELLE)) {
 				requeteGazelle = String.join(" ", "insert into gazelle (id,idAnimal, lgCornes) values ('",
 						Integer.toString(obj.getGaz().getId()),",",
-						Integer.toString(obj.getCle()),",",Integer.toString(obj.getGaz().getLgCornes()),");");
+						Integer.toString(obj.getIdAnimal()),",",Integer.toString(obj.getGaz().getLgCornes()),");");
 				st.executeUpdate(requeteGazelle);
 			}
 			connecteur.getConn().commit();

@@ -23,7 +23,7 @@ class FichierAccessTest {
 		fich = "tests.data"; 
 		fAccess = new FichierAccess<>(fich); 
 		aEffacer = new CagePOJO();
-		aEffacer.setCle(99);
+		aEffacer.setIdAnimal(99);
 		aEffacer.setCodeAnimal("Singe");
 		aEffacer.setNom("Chiita");
 		aEffacer.setAge(8);
@@ -65,7 +65,7 @@ class FichierAccessTest {
 		for(int i = 0; i < 4; i++) 
 		{ 
 			c = new CagePOJO();
-			c.setCle(i);
+			c.setIdAnimal(i);
 			c.setX(100+(10*i));
 			c.setY(700);
 			c.setCodeAnimal("Singe");

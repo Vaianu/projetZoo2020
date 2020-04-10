@@ -36,7 +36,7 @@ public final class CageManagee {
 		controleur.nourrir();
 		if(controleur.getOccupant() != null) {
 			vue.setPoids(controleur.getOccupant().getPoids());
-			modele.modifier(vue.getCle(), vue);
+			modele.modifier(vue.getIdAnimal(), vue);
 		}
 		//modele.modifier(vue)
 	}
