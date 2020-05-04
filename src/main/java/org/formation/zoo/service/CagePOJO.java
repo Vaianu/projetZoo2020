@@ -35,6 +35,14 @@ public class CagePOJO implements Serializable {
 	private String image;
 
 	public CagePOJO() {
+		x= 0;
+		y = 0;
+		cle = 0;
+		codeAnimal = null;
+		nom = null;
+		age = 0;
+		poids = 0;
+		gaz = null;
 	}
 
 	public String getPancarte() {

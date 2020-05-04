@@ -1,6 +1,5 @@
 package org.formation.zoo.stockage;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Properties;
@@ -8,7 +7,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.formation.zoo.service.CagePOJO;
-import org.formation.zoo.service.GazellePOJO;
 
 public class DaoFactory {
     private static DaoFactory instance = new DaoFactory();

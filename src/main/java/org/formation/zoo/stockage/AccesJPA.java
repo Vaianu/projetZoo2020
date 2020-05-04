@@ -34,41 +34,27 @@ public class AccesJPA<T> implements Dao<T>{
 	}
 
 	public void modifier(int cle, T obj) {
-		if(obj != null)
-		{
-			em.getTransaction().begin();
-			em.merge(obj);
-			em.getTransaction().commit();
-		}	
+		em.getTransaction().begin();
+		em.merge(obj);
+		em.getTransaction().commit();	
 	}
 
 	@SuppressWarnings("unchecked")
 	public void effacer(int cle) {
 		T obj = lire(cle);
-		if(obj != null)
-		{
-			em.getTransaction().begin();
-			em.remove(obj);
-			em.getTransaction().commit();
-		}
+		effacer(obj);
 	}
 
 	public void effacer(T obj) {
-		if(obj != null)
-		{
-			em.getTransaction().begin();
-			em.remove(obj);
-			em.getTransaction().commit();
-		}
+		em.getTransaction().begin();
+		em.remove(obj);
+		em.getTransaction().commit();
 	}
 
 	public void ajouter(T obj) {
-		if(obj != null)
-		{
-			em.getTransaction();
-			em.persist(obj);
-			em.getTransaction().commit();
-		}
+		em.getTransaction();
+		em.persist(obj);
+		em.getTransaction().commit();
 	}
 	
 }
