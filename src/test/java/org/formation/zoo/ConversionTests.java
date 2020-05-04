@@ -16,7 +16,7 @@ class ConversionTests {
 		cp = new CagePOJO();
 		cp.setX(23);
 		cp.setY(24);
-		cp.setIdAnimal(0);
+		cp.setCle(0);
 		cage = Conversion.pojoToCage(cp);
 		assertNotNull(cage);
 		assertEquals(23, cage.getX());

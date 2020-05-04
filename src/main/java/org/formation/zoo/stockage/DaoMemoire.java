@@ -24,11 +24,11 @@ public class DaoMemoire implements Dao<CagePOJO> {
 	}
 	private void init()
 	{
-		CagePOJO tmp = null;
+		/*CagePOJO tmp = null;
 		elts = new Vector<CagePOJO>();
 		tmp = new CagePOJO();
 		tmp.setCodeAnimal("Singe");
-		tmp.setIdAnimal(0);
+		tmp.setCle(0);
 		tmp.setX(100);
 		tmp.setY(200);
 		tmp.setAge(20);
@@ -38,13 +38,13 @@ public class DaoMemoire implements Dao<CagePOJO> {
 		tmp = new CagePOJO();
 		tmp.setX(234);
 		tmp.setY(254);
-		tmp.setIdAnimal(1);
+		tmp.setCle(1);
 		elts.add(tmp);
 		tmp = new CagePOJO();
 		tmp.setX(666);
 		tmp.setY(150);
-		tmp.setIdAnimal(2);
-		elts.add(tmp);
+		tmp.setCle(2);
+		elts.add(tmp);*/
 	
 	}
 

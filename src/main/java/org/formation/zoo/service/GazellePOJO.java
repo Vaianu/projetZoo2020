@@ -10,20 +10,15 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="gazelle")
-@NamedQuery(name="GazellePOJO.findAll", query="SELECT g FROM GazellePOJO g")
 public class GazellePOJO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="idAnimal")
 	private int idAnimal;
-
 	private int lgCornes;
-
+	
 	public GazellePOJO() {
 	}
 
@@ -50,5 +45,9 @@ public class GazellePOJO implements Serializable {
 	public void setLgCornes(int lgCornes) {
 		this.lgCornes = lgCornes;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "GazellePOJO [id=" + id + ", idAnimal=" + idAnimal + ", lgCornes=" + lgCornes + "]";
+	}
 }

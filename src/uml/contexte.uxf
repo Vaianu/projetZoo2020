@@ -4,8 +4,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>30</x>
-      <y>60</y>
+      <x>110</x>
+      <y>130</y>
       <w>60</w>
       <h>110</h>
     </coordinates>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>270</x>
-      <y>80</y>
-      <w>130</w>
-      <h>70</h>
+      <x>370</x>
+      <y>130</y>
+      <w>100</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>_zoo_</panel_attributes>
     <additional_attributes/>
@@ -26,19 +26,19 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>90</x>
-      <y>90</y>
-      <w>200</w>
+      <x>160</x>
+      <y>150</y>
+      <w>230</w>
       <h>40</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>100</x>
-      <y>120</y>
+      <x>210</x>
+      <y>180</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
@@ -49,13 +49,13 @@ vérifier résultat</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>120</x>
-      <y>70</y>
-      <w>130</w>
+      <x>210</x>
+      <y>130</y>
+      <w>150</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 lancer jeu</panel_attributes>
-    <additional_attributes>110.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>

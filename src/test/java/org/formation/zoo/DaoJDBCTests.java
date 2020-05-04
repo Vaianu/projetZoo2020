@@ -60,7 +60,7 @@ class DaoJDBCTests {
 		cp.setPoids(56);
 		cp.setX(100);
 		cp.setY(200);
-		cp.setIdAnimal(sav.getIdAnimal());
+		cp.setCle(sav.getCle());
 		cp.setCodeAnimal(sav.getCodeAnimal());
 		//on modifie le singe
 		testMAJAnimal(cp, sav);
@@ -81,7 +81,7 @@ class DaoJDBCTests {
 		sav = dao.lire(3);
 		cp = new CagePOJO();
 		cp.setCodeAnimal(null);
-		cp.setIdAnimal(3);
+		cp.setCle(3);
 		cp.setX(777);
 		cp.setY(888);
 		dao.modifier(3, cp);
@@ -96,7 +96,7 @@ class DaoJDBCTests {
 		CagePOJO cp = null;
 		
 		//on modifie l'animal
-		dao.modifier(sav.getIdAnimal(), animal);
+		dao.modifier(sav.getCle(), animal);
 		res = dao.lireTous();
 		cp = res.get(3);
 		assertEquals(animal.getNom(), cp.getNom());
@@ -105,7 +105,7 @@ class DaoJDBCTests {
 		assertEquals(animal.getX(), cp.getX());
 		assertEquals(animal.getY(), cp.getY());
 		//on remet dans l'etat
-		dao.modifier(sav.getIdAnimal(), sav);
+		dao.modifier(sav.getCle(), sav);
 		res = dao.lireTous();
 		cp = res.get(3);
 		assertEquals(sav.getNom(), cp.getNom());
@@ -147,7 +147,7 @@ class DaoJDBCTests {
 		aAjouter.setPoids(176);
 		aAjouter.setX(300);
 		aAjouter.setY(400);
-		aAjouter.setIdAnimal(99);
+		aAjouter.setCle(99);
 		aAjouter.setCodeAnimal("Lion");
 		
 		assertEquals(5, dao.lireTous().size());

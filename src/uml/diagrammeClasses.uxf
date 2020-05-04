@@ -4,40 +4,64 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>230</y>
-      <w>230</w>
-      <h>150</h>
+      <x>270</x>
+      <y>100</y>
+      <w>200</w>
+      <h>200</h>
     </coordinates>
-    <panel_attributes>FichierAccess
+    <panel_attributes>Cage
 --
--fichier:String
--elts:List&lt;Cage&gt;
+-occupant : Animal
+-x:int
+-y:int
+ouvert : boolean
 --
--write()
--read()
--init()
-+lireTous():List&lt;Cage&gt;
-+ecrireTous(lesCages:List&lt;Cage&gt;)
-
-bg=blue</panel_attributes>
++entrer(a:Animal)
++sortir() : Animal
++ouvrir()
++fermer()
++isOuvert() : boolean
++toString : String
+bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>190</x>
+      <x>20</x>
+      <y>240</y>
+      <w>230</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>FichierAccess
+--
+-fichier : String
+-elts : List&lt;Cage&gt;
+--
++FichierAccess(f:String)
+-write()
+-read()
+-init()
++lireTous() : List&lt;Cage&gt;
++ecrireTous(lesCages:List&lt;Cage&gt;)
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>110</x>
       <y>10</y>
-      <w>260</w>
+      <w>120</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>Zoo
 --
 
 --
-+afficher():String
++afficher()
 +nourrir()
-+devorer(mangeur:int,mange:int):String
++devorer() : String
 +fermer()
 bg=cyan</panel_attributes>
     <additional_attributes/>
@@ -45,372 +69,239 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>300</x>
-      <y>260</y>
-      <w>170</w>
-      <h>180</h>
-    </coordinates>
-    <panel_attributes>Cage
---
--occupant:Animal
--x:int
--y:int
--ouvert:boolean
---
-+entrer(a:Animal)
-+sortir():Animal
-+ouvrir()
-+fermer()
-+toString():String
-
-bg=orange</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>620</x>
-      <y>250</y>
-      <w>170</w>
-      <h>200</h>
+      <x>560</x>
+      <y>220</y>
+      <w>200</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>/Animal/
 --
--nom:String
--age:int
--poids:double
--LIMITE:double
+-nom : String
+-age : int
+-poids : double
+-LIMITE : double
 --
 +grandir()
-+toString():String
-+getInfos():String
-+crier():String
++toString() : String
++getInfos() : String
++crier() : String
 +sauter()
-+courir()
-bg=red</panel_attributes>
++courir
+bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>590</x>
-      <y>0</y>
-      <w>170</w>
-      <h>170</h>
+      <x>540</x>
+      <y>20</y>
+      <w>190</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>/Individu/
 --
 
 --
 +manger()
-+crier():String
-+manger(m:Mangeable):String
++crier() : String
++manger(m:Mangeable) : String
 +sauter()
 +courir()
 +dormir()
-+getInfos():String
-bg=yellow</panel_attributes>
++getInfos() : String
+bg=light_gray</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>850</x>
-      <y>140</y>
-      <w>170</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>/Mangeable/
---
-
---
--prelever():double
-bg=yellow</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>820</x>
-      <y>530</y>
-      <w>170</w>
+      <x>830</x>
+      <y>270</y>
+      <w>160</w>
       <h>160</h>
     </coordinates>
     <panel_attributes>Gazelle
 --
--lgCornes:int
+_serialVersionUID=1L : long_
+-lgCornes : int
 --
 +manger()
 +courir()
 +dormir()
 +finalize()
-+toString():String
-+prelever():double
-bg=gray</panel_attributes>
++toString : String
++prelever() : double
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>810</x>
+      <y>40</y>
+      <w>160</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Mangeable
+--
+
+--
++prelever() : double
+bg=light_gray</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>90</x>
-      <y>40</y>
-      <w>120</w>
-      <h>210</h>
+      <x>70</x>
+      <y>60</y>
+      <w>60</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=1</panel_attributes>
-    <additional_attributes>100.0;10.0;10.0;10.0;10.0;190.0</additional_attributes>
+    <additional_attributes>40.0;10.0;10.0;10.0;10.0;180.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>350</x>
-      <y>120</y>
-      <w>50</w>
-      <h>160</h>
+      <x>220</x>
+      <y>60</y>
+      <w>190</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m2=0..n</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+    <additional_attributes>10.0;10.0;150.0;10.0;150.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>460</x>
-      <y>310</y>
-      <w>180</w>
-      <h>40</h>
+      <y>170</y>
+      <w>120</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=-
 m2=0..1</panel_attributes>
-    <additional_attributes>10.0;10.0;160.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;100.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>670</x>
-      <y>160</y>
+      <x>890</x>
+      <y>130</y>
       <w>30</w>
-      <h>110</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
-      <y>440</y>
-      <w>170</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;150.0;90.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>940</x>
-      <y>220</y>
+      <x>640</x>
+      <y>170</y>
       <w>30</w>
-      <h>330</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;310.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
-      <y>530</y>
-      <w>170</w>
-      <h>160</h>
-    </coordinates>
-    <panel_attributes>Lion
---
-
---
-+manger()
-+manger(m:Mangeable):String
-+crier()
-+dormir()
-+sauter()
-bg=gray</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>690</x>
-      <y>440</y>
-      <w>30</w>
+      <x>310</x>
+      <y>450</y>
+      <w>190</w>
       <h>110</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>440</x>
-      <y>530</y>
-      <w>170</w>
-      <h>160</h>
     </coordinates>
     <panel_attributes>Singe
 --
-
+_serialVersionUID=1L : long_
 --
 +manger()
 +courir()
 +dormir()
 +sauter()
-bg=gray
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>430</y>
+      <w>180</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Lion
+--
+_serialVersionUID=1L : long_
+--
++manger()
++manger(m:Mangeable) : String
++crier() : String
++dormir()
++sauter()
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>270</y>
+      <w>100</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>660</x>
+      <y>370</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>490</x>
+      <y>370</y>
+      <w>160</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>70</x>
+      <y>490</y>
+      <w>140</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>LIMITE: poids max
+possible de l'animal
 fg=black</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>440</y>
-      <w>140</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>120.0;10.0;10.0;90.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>260</x>
-      <y>460</y>
-      <w>320</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>LIMITE: poids maximum que peut avoir l'animal
-bg=green</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>500</x>
-      <y>360</y>
-      <w>140</w>
-      <h>120</h>
+      <x>200</x>
+      <y>290</y>
+      <w>380</w>
+      <h>220</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>120.0;10.0;10.0;100.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>820</x>
-      <y>10</y>
-      <w>220</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>prelever retourne 1/3 du poids 
-de la proie 
-bg=green</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>900</x>
-      <y>40</y>
-      <w>30</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>20</x>
-      <y>510</y>
-      <w>170</w>
-      <h>180</h>
-    </coordinates>
-    <panel_attributes>CageManger
---
-
---
-+nourrir()
-
-bg=orange</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>110</x>
-      <y>410</y>
-      <w>210</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-m2=1</panel_attributes>
-    <additional_attributes>10.0;100.0;10.0;10.0;190.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>220</x>
-      <y>760</y>
-      <w>170</w>
-      <h>180</h>
-    </coordinates>
-    <panel_attributes>Dao&lt;&gt;
---
-
---
-+modifier(T)
-
-bg=orange</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>180</x>
-      <y>600</y>
-      <w>150</w>
-      <h>180</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
-m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;10.0;120.0;160.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>490</x>
-      <y>760</y>
-      <w>170</w>
-      <h>180</h>
-    </coordinates>
-    <panel_attributes>CagePOJO
---
-
---
-
-bg=orange</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>180</x>
-      <y>550</y>
-      <w>410</w>
-      <h>230</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
-m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;210.0;10.0;210.0;180.0;380.0;180.0;380.0;210.0</additional_attributes>
+    <additional_attributes>360.0;10.0;10.0;200.0</additional_attributes>
   </element>
 </diagram>

@@ -35,14 +35,14 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
  * @return au moins un POJO "cage vide"
  * @throws SQLException
  */
-	private CagePOJO creerPOJO(ResultSet rs) throws SQLException {
+	/*private CagePOJO creerPOJO(ResultSet rs) throws SQLException {
 		CagePOJO ret = null;
 		GazellePOJO gaz = null;
 		
 		ret = new CagePOJO();
 		ret.setX(rs.getInt("x"));
 		ret.setY(rs.getInt("y"));
-		ret.setIdAnimal(rs.getInt("idAnimal"));
+		ret.setCle(rs.getInt("idAnimal"));
 		//SI QUELQU'UN
 		if(rs.getString("codeAnimal") != null) {
 			ret.setAge(rs.getInt("age"));
@@ -59,14 +59,14 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 			}
 		}
 		return ret;
-	}
+	}*/
 	/**
 	 * voir doc de l'interface
 	 */
 	@Override
 	public List<CagePOJO> lireTous() {
 		List<CagePOJO> ret = null;
-		ResultSet rs = null;
+	/*	ResultSet rs = null;
 		
 		String req = "SELECT * FROM animal as gauche left join gazelle "
 							+ "	as droite on gauche.idAnimal = droite.idAnimal;";
@@ -86,7 +86,7 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 			} catch (SQLException e) {
 				logger.log(Level.INFO,e.getMessage());
 			}
-		}
+		}*/
 		return ret;
 	}
 	/**
@@ -119,12 +119,12 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 			}else {
 				prepareeCage.setNull(1, Types.VARCHAR);
 			}
-			prepareeCage.setInt(2,obj.getX());
+			/*prepareeCage.setInt(2,obj.getX());
 			prepareeCage.setInt(3,obj.getY());
 			prepareeCage.setString(4,obj.getNom());
 			prepareeCage.setDouble(5,obj.getPoids());
 			prepareeCage.setInt(6,obj.getAge());	
-			prepareeCage.setInt(7,obj.getIdAnimal());
+			prepareeCage.setInt(7,obj.getCle());
 			nb = prepareeCage.executeUpdate();
 			if((obj.getCodeAnimal() != null) && (obj.getCodeAnimal().equals(GAZELLE))){
 				prepareeGazelle = connecteur.getConn().prepareStatement(requeteGazelle);
@@ -132,7 +132,7 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 				prepareeGazelle.setInt(2,obj.getGaz().getIdAnimal());
 				nb = prepareeGazelle.executeUpdate();
 				prepareeGazelle.close();
-			}
+			}*/
 			if (nb != 0) {
 				connecteur.getConn().commit();
 			}else {
@@ -167,7 +167,7 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 	 */
 	@Override
 	public void effacer(int cle) {
-		String requete = String.join(" ", "SELECT * FROM animal WHERE idAnimal =",Integer.toString(cle),";");
+	/*	String requete = String.join(" ", "SELECT * FROM animal WHERE idAnimal =",Integer.toString(cle),";");
 		ResultSet res = null;
 	
 		try (Statement st = connecteur.getConn().createStatement()){
@@ -186,7 +186,7 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 			} catch (SQLException e) {
 				logger.log(Level.INFO, e.getMessage());
 			}
-		}
+		}*/
 	}
 
 	/**
@@ -194,8 +194,8 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 	 */
 	@Override
 	public void effacer(CagePOJO obj) {
-		String requete = String.join(" ","delete from animal where idAnimal= ",Integer.toString(obj.getIdAnimal()),";"); 
-		String requeteGazelle =	 String.join(" ", "DELETE FROM animal WHERE idAnimal =",Integer.toString(obj.getIdAnimal()),";"); 
+		/*String requete = String.join(" ","delete from animal where idAnimal= ",Integer.toString(obj.getCle()),";"); 
+		String requeteGazelle =	 String.join(" ", "DELETE FROM animal WHERE idAnimal =",Integer.toString(obj.getCle()),";"); 
 		
 		Statement st = null;
 		try {
@@ -221,7 +221,7 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 					logger.log(Level.INFO, e.getMessage());
 				}
 			}
-		}
+		}*/
 	}
 
 	/**
@@ -229,8 +229,8 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 	 */
 	@Override
 	public void ajouter(CagePOJO obj) {
-		String requeteCage = String.join("", "insert into animal (idAnimal,codeAnimal, nom, age, poids, x, y) values (",
-					Integer.toString(obj.getIdAnimal()),",'",obj.getCodeAnimal(),"','",obj.getNom(),"',",Integer.toString(obj.getAge()),",",
+		/*String requeteCage = String.join("", "insert into animal (idAnimal,codeAnimal, nom, age, poids, x, y) values (",
+					Integer.toString(obj.getCle()),",'",obj.getCodeAnimal(),"','",obj.getNom(),"',",Integer.toString(obj.getAge()),",",
 					Double.toString(obj.getPoids()),",",Integer.toString(obj.getX()),
 					","+Integer.toString(obj.getY()),");");	
 		String requeteGazelle = null;
@@ -242,7 +242,7 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 			if(obj.getCodeAnimal().equals(GAZELLE)) {
 				requeteGazelle = String.join(" ", "insert into gazelle (id,idAnimal, lgCornes) values ('",
 						Integer.toString(obj.getGaz().getId()),",",
-						Integer.toString(obj.getIdAnimal()),",",Integer.toString(obj.getGaz().getLgCornes()),");");
+						Integer.toString(obj.getCle()),",",Integer.toString(obj.getGaz().getLgCornes()),");");
 				st.executeUpdate(requeteGazelle);
 			}
 			connecteur.getConn().commit();
@@ -261,7 +261,7 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 					logger.log(Level.INFO, e.getMessage());
 				}
 			}
-		}
+		}*/
 	}
 	/**
 	 * voir doc de l'interface
@@ -269,7 +269,7 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 	@Override
 	public CagePOJO lire(int cle) {
 		CagePOJO ret = null;
-		String requete = String.join(" ","SELECT * FROM animal as gauche left join gazelle as droite"
+	/*	String requete = String.join(" ","SELECT * FROM animal as gauche left join gazelle as droite"
 				,"on gauche.idAnimal = droite.idAnimal WHERE gauche.idAnimal =",Integer.toString(cle),";");
 		Statement st  = null;
 		ResultSet rs = null;
@@ -297,7 +297,7 @@ public class DaoJDBCImpl implements Dao<CagePOJO> {
 					logger.log(Level.INFO, e.getMessage());
 				}
 			}
-		}
+		}*/
 			
 		return ret;
 	}
