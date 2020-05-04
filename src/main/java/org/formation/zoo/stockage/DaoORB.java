@@ -25,7 +25,8 @@ public class DaoORB {
 	}
 	private void charger() {
 		try {
-			prop.load(new FileInputStream("mysql.properties"));
+			//prop.load(new FileInputStream("mysql.properties"));
+			prop.load(DaoORB.class.getResourceAsStream("mysql.properties"));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
