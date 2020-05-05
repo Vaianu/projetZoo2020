@@ -16,7 +16,7 @@
 <form name="fzoo" action="servlet.html" method="GET">
 <nav>
 <ul class="m">
-	<li class="m"><a href="#">TOUT le monde mange (defaut)</a></li>
+	<li class="m"><a href="nourrir">TOUT le monde mange (defaut)</a></li>
 	<li class="m"><a href="#" onClick="fzoo.submit();">FAIRE manger les animaux selectionnes</a></li>
 	<li class="m"><a href="#">Ajouter un animal</a></li>
 	<li class="m"><a href="#">Supprimer un animal</a></li>
