@@ -25,7 +25,7 @@
 <article>
 <%
 List<CagePOJO> zanimaux = null;
-zanimaux = Manager.getInstance().getAnimaux();
+zanimaux =  (List<CagePOJO>) request.getAttribute("lesCages");
 String texte = null;
 %>
 <img  alt="mon zoo" src="images/plan.gif">
