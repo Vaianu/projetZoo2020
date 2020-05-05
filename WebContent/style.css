@@ -105,3 +105,7 @@ box-shadow: 10px 10px 5px #000000;
 }
 img.animal {width:50px;height:50px}
 .etat {position:absolute;top:10%;left:0px;background-color:salmon;color:blue;width:100%;height:10%}
+
+.mangeur {
+	margin-top: 10px;
+}

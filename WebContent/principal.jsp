@@ -35,7 +35,12 @@ String texte = null;
 	out.print(texte);
 	texte = String.join("", "<img alt=\"\" src=\"",zanimaux.get(i).getImage(),"\" class=\"animal\"/>");
 	out.print(texte);
-	texte = String.join("", "<div class=\"afficheAnimal\" >",zanimaux.get(i).getPancarte(),"</div></div>");
+	texte = String.join("", "<div class=\"afficheAnimal\" >",zanimaux.get(i).getPancarte(),"</div>");
+	out.print(texte);
+	
+	texte = String.join("", "<div class=\"mangeur\"><input type=\"radio\" value=\"value1\" name=\"group1\"><label for=\"mangeur\">Mangeur</label></div>");
+	out.print(texte);
+	texte = String.join("", "<div class=\"mange\"><input type=\"radio\" value=\"value2\" name=\"group2\"><label for=\"mange\">Mange</label></div></div>");
 	out.print(texte);
 }
 %>
