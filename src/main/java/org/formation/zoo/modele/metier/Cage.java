@@ -2,6 +2,7 @@ package org.formation.zoo.modele.metier;
 
 import java.io.Serializable;
 
+import org.formation.zoo.modele.technique.BeurkException;
 import org.formation.zoo.modele.technique.CagePleineException;
 import org.formation.zoo.modele.technique.PorteException;
 
@@ -125,11 +126,20 @@ public class Cage implements Serializable{
 	public void setOuvert(boolean ouvert) {
 		this.ouvert = ouvert;
 	}
+	
 	public void nourrir() {
 		if(getOccupant() != null) {
 			getOccupant().manger();
 		}
 	}
+	
+	public String devorer(Mangeable m) throws BeurkException {
+		if(getOccupant() != null) {
+			return getOccupant().manger(m);
+		}
+		return null;
+	}
+	
 	@Override
 	public String toString() {
 		String ret = null;

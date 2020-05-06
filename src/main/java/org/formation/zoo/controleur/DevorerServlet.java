@@ -13,18 +13,18 @@ import javax.servlet.http.HttpServletResponse;
  * @author Vaianu
  *
  */
-@WebServlet("/nourrir")
-public class MangerServlet extends HttpServlet {
+@WebServlet("/devorer")
+public class DevorerServlet extends HttpServlet {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	public MangerServlet() {
+	
+	public DevorerServlet() {
 		super();
 	}
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req, resp);
@@ -32,8 +32,10 @@ public class MangerServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Manager.getInstance().nourrir();
-		req.getSession(false).setAttribute("etat", "Les animaux ont bien été nourrient");
+		int mangeur = Integer.parseInt(req.getParameter("mangeur"));
+		int mange = Integer.parseInt(req.getParameter("mange"));
+		String message = Manager.getInstance().devorer(mangeur, mange);
+		req.getSession(false).setAttribute("etat", message);
 		resp.sendRedirect("/projetzoo2020");
 	}
 

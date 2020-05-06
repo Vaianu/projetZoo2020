@@ -2,6 +2,7 @@ package org.formation.zoo.modele.technique;
 
 import org.formation.zoo.modele.metier.Animal;
 import org.formation.zoo.modele.metier.Cage;
+import org.formation.zoo.modele.metier.Mangeable;
 import org.formation.zoo.service.CagePOJO;
 import org.formation.zoo.stockage.Dao;
 import org.formation.zoo.utilitaires.Conversion;
@@ -64,4 +65,64 @@ public final class CageManagee {
 		vue.setImage(tmp);
 		return vue;
 	}
+	
+	///////////////NOUVEAU////////////////
+	
+	public Animal getOccupant() {
+		return controleur.getOccupant();
+	}
+	
+	public void ouvrir() {
+		controleur.ouvrir();
+	}
+	
+	public void fermer() {
+		controleur.fermer();
+	}
+	
+	public Animal sortir() {
+		try {
+			return controleur.sortir();
+		} catch (PorteException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	/**
+	 * Efface l'animal dans la base de données
+	 */
+	public void retirer() {
+		vue.setCodeAnimal(null);
+		vue.setNom(null);
+		vue.setAge(0);
+		vue.setPoids(0);
+		modele.modifier(vue.getCle(), vue);
+	}
+	
+	public String devorer(CageManagee cageManagee) {
+		String s = "INCOMPATIBLE";
+		Mangeable laBeteConvoitee = null;
+		if(cageManagee.getOccupant() instanceof Mangeable)
+		{
+			cageManagee.ouvrir();
+			laBeteConvoitee = (Mangeable) cageManagee.sortir();
+			try {
+				s = controleur.devorer(laBeteConvoitee);
+				vue.setPoids(controleur.getOccupant().getPoids());
+				modele.modifier(vue.getCle(), vue);
+				cageManagee.retirer();
+			} catch (BeurkException e) {
+				s = e.getMessage();
+				try {
+					cageManagee.entrer((Animal)laBeteConvoitee);
+				} catch (PorteException | CagePleineException e1) {
+					e1.printStackTrace();
+				}
+				cageManagee.fermer();
+			}
+		}
+		return s;
+	}
+	
 }

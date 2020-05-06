@@ -79,6 +79,18 @@ public final class Manager {
 			cageManagee.nourrir();
 		}
 	}
+	
+	/**
+	 * 
+	 * @param mangeur indice de l'animal mangeur (sa cage)
+	 * @param mange indice de la cage de la proie
+	 * @return le texte sur ce qu'il s'est passé
+	 */
+	public String devorer(int mangeur, int mange)
+	{
+		return lesCages.get(mangeur).devorer(lesCages.get(mange));
+	}
+	
 	/**
 	 * 
 	 * @param mangeur indice de l'animal mangeur (sa cage)
