@@ -31,16 +31,18 @@ String texte = null;
 <img  alt="mon zoo" src="images/plan.gif">
 <% for(int i=0; i<zanimaux.size(); i++){
 	texte = String.join("", "<div id=\"animal",Integer.toString(i),"\" style=\"position:absolute;top:",
-	Integer.toString(zanimaux.get(i).getY()),"px;left:",Integer.toString(zanimaux.get(i).getX()),"px\">");
+		Integer.toString(zanimaux.get(i).getY()),"px;left:",Integer.toString(zanimaux.get(i).getX()),"px\">");
 	out.print(texte);
 	texte = String.join("", "<img alt=\"\" src=\"",zanimaux.get(i).getImage(),"\" class=\"animal\"/>");
 	out.print(texte);
 	texte = String.join("", "<div class=\"afficheAnimal\" >",zanimaux.get(i).getPancarte(),"</div>");
 	out.print(texte);
 	
-	texte = String.join("", "<div class=\"mangeur\"><input type=\"radio\" value=\"",Integer.toString(i),"\" name=\"mangeur\"><label for=\"mangeur\">Mangeur</label></div>");
+	texte = String.join("", "<div class=\"mangeur\"><input type=\"radio\" value=\"",Integer.toString(i),"\" id=\"mangeur",
+			Integer.toString(i),"\" name=\"mangeur\"><label for=\"mangeur",Integer.toString(i),"\">Mangeur</label></div>");
 	out.print(texte);
-	texte = String.join("", "<div class=\"mange\"><input type=\"radio\" value=\"",Integer.toString(i),"\" name=\"mange\"><label for=\"mange\">Mange</label></div></div>");
+	texte = String.join("", "<div class=\"mange\"><input type=\"radio\" value=\"",Integer.toString(i),"\" id=\"mange",
+			Integer.toString(i),"\" name=\"mange\"><label for=\"mange",Integer.toString(i),"\">Mange</label></div></div>");
 	out.print(texte);
 }
 %>

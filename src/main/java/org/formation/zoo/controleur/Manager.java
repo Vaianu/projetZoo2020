@@ -81,6 +81,7 @@ public final class Manager {
 	}
 	
 	/**
+	 * Fait dévorer l'animal mange par l'animal mangeur
 	 * 
 	 * @param mangeur indice de l'animal mangeur (sa cage)
 	 * @param mange indice de la cage de la proie

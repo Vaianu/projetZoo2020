@@ -13,7 +13,7 @@ public class BeurkException extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	public BeurkException() {
-		super("Je n'aime pas Ã§a");
+		super("Je n'aime pas ça");
 	}
 
 	public BeurkException(String raison) {

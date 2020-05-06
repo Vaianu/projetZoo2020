@@ -54,6 +54,8 @@ public final class CageManagee {
 		String tmp = null;
 		if(vue.getCodeAnimal() != null) {
 			tmp = String.join(" ",vue.getNom(),Integer.toString(vue.getAge()),"ans",Double.toString(vue.getPoids()),"kg");
+			if(vue.getCodeAnimal().equals("Gazelle"))
+				tmp += String.join(" ", " ",Integer.toString(vue.getGaz().getLgCornes()),"cm de cornes");
 			vue.setPancarte(tmp);
 			tmp = String.join("", IMAGES, vue.getCodeAnimal().toLowerCase()+".gif");
 		}
@@ -103,7 +105,7 @@ public final class CageManagee {
 	public String devorer(CageManagee cageManagee) {
 		String s = "INCOMPATIBLE";
 		Mangeable laBeteConvoitee = null;
-		if(cageManagee.getOccupant() instanceof Mangeable)
+		if(controleur.getOccupant() != null && cageManagee.getOccupant() instanceof Mangeable)
 		{
 			cageManagee.ouvrir();
 			laBeteConvoitee = (Mangeable) cageManagee.sortir();
