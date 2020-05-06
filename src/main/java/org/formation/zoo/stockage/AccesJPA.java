@@ -47,12 +47,16 @@ public class AccesJPA<T> implements Dao<T>{
 
 	public void effacer(T obj) {
 		em.getTransaction().begin();
+		if(!em.contains(obj))
+		{
+			obj = em.merge(obj);
+		}
 		em.remove(obj);
 		em.getTransaction().commit();
 	}
 
 	public void ajouter(T obj) {
-		em.getTransaction();
+		em.getTransaction().begin();
 		em.persist(obj);
 		em.getTransaction().commit();
 	}

@@ -3,20 +3,10 @@ package org.formation.zoo.controleur;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-
-import org.formation.zoo.modele.metier.Animal;
-import org.formation.zoo.modele.metier.Cage;
-import org.formation.zoo.modele.metier.Mangeable;
-import org.formation.zoo.modele.technique.BeurkException;
 import org.formation.zoo.modele.technique.CageManagee;
-import org.formation.zoo.modele.technique.CagePleineException;
-import org.formation.zoo.modele.technique.PorteException;
 import org.formation.zoo.service.CagePOJO;
 import org.formation.zoo.stockage.Dao;
 import org.formation.zoo.stockage.DaoFactory;
-import org.formation.zoo.stockage.FichierAccess;
-import org.formation.zoo.stockage.TypeDao;
-import org.formation.zoo.utilitaires.Conversion;
 
 /**
  * SINGLETON et une FACADE

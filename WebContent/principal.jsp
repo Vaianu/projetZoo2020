@@ -50,7 +50,8 @@ String texte = null;
 <footer>
 Etat en temps reel : 
 <% if(session.getAttribute("etat") != null) {
-	out.print(session.getAttribute("etat"));
+	texte = String.join("", "<span id=\"etat\">",session.getAttribute("etat").toString(),"</span>");
+	out.print(texte);
 	session.removeAttribute("etat");
 }
 %>

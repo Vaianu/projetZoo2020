@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.formation.zoo.service.CagePOJO;
+import org.formation.zoo.service.GazellePOJO;
 
 public class DaoFactory {
     private static DaoFactory instance = new DaoFactory();
@@ -14,6 +15,7 @@ public class DaoFactory {
     private Class<?> classeDao;
     private Properties properties;
     private Logger logger = Logger.getLogger(this.getClass().getName());
+    
     private DaoFactory(){
         logger.setLevel(Level.INFO);
         properties = new Properties();
@@ -23,15 +25,29 @@ public class DaoFactory {
             logger.log(Level.INFO,e.getMessage());
         }
     }
+    
     public static DaoFactory getInstance() {
         return instance;
     }
+    
     @SuppressWarnings("unchecked")
     public Dao<CagePOJO> getDao(){
         Dao<CagePOJO> ret = null;
         try {
             classeDao = (Class<?>) Class.forName(String.join("", CHEMIN,properties.getProperty("dao")));
             ret = (Dao<CagePOJO>) classeDao.getDeclaredConstructor().newInstance();
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
+            logger.log(Level.INFO,e.getMessage());
+        }
+        return ret;
+    }
+    
+    @SuppressWarnings("unchecked")
+    public Dao<GazellePOJO> getDaoGaz(){
+        Dao<GazellePOJO> ret = null;
+        try {
+            classeDao = (Class<?>) Class.forName(String.join("", CHEMIN,properties.getProperty("dao")));
+            ret = (Dao<GazellePOJO>) classeDao.getDeclaredConstructor().newInstance();
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
             logger.log(Level.INFO,e.getMessage());
         }

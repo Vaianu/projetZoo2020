@@ -4,7 +4,9 @@ import org.formation.zoo.modele.metier.Animal;
 import org.formation.zoo.modele.metier.Cage;
 import org.formation.zoo.modele.metier.Mangeable;
 import org.formation.zoo.service.CagePOJO;
+import org.formation.zoo.service.GazellePOJO;
 import org.formation.zoo.stockage.Dao;
+import org.formation.zoo.stockage.DaoFactory;
 import org.formation.zoo.utilitaires.Conversion;
 
 public final class CageManagee {
@@ -70,18 +72,33 @@ public final class CageManagee {
 	
 	///////////////NOUVEAU////////////////
 	
+	/**
+	 * 
+	 * @return l'animal dans la cage
+	 */
 	public Animal getOccupant() {
 		return controleur.getOccupant();
 	}
 	
+	/**
+	 * Ouvrir la cage
+	 */
 	public void ouvrir() {
 		controleur.ouvrir();
 	}
 	
+	/**
+	 * Fermer la cage
+	 */
 	public void fermer() {
 		controleur.fermer();
 	}
 	
+	/**
+	 * Sortir l'animal de la cage
+	 * 
+	 * @return l'animal dans la cage
+	 */
 	public Animal sortir() {
 		try {
 			return controleur.sortir();
@@ -92,9 +109,15 @@ public final class CageManagee {
 	}
 	
 	/**
-	 * Efface l'animal dans la base de données
+	 * Méthode appelé pour effacer une gazelle mangé par un lion.
+	 * Enlève la gazelle dans la cage dans base de données
+	 * et supprime l'enregistrement dans table Gazelle concernant la longueur de ses cornes 
 	 */
 	public void retirer() {
+		Dao<GazellePOJO> modeleGaz = null;
+		modeleGaz = DaoFactory.getInstance().getDaoGaz();
+		modeleGaz.effacer(vue.getGaz());
+		vue.setGaz(null);
 		vue.setCodeAnimal(null);
 		vue.setNom(null);
 		vue.setAge(0);
@@ -105,7 +128,8 @@ public final class CageManagee {
 	public String devorer(CageManagee cageManagee) {
 		String s = "INCOMPATIBLE";
 		Mangeable laBeteConvoitee = null;
-		if(controleur.getOccupant() != null && cageManagee.getOccupant() instanceof Mangeable)
+		if(controleur.getOccupant() != null && controleur.getOccupant() != cageManagee.getOccupant() 
+				&& cageManagee.getOccupant() instanceof Mangeable)
 		{
 			cageManagee.ouvrir();
 			laBeteConvoitee = (Mangeable) cageManagee.sortir();

@@ -79,6 +79,11 @@ footer{
 	bottom: 0px;
 	right: 15px;
 	text-align: center;	
+	font-size: 1.2em;
+	font-weight: bold;
+}
+#etat{
+	color: red;
 }
 .plan{
 	display:block;
