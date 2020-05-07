@@ -80,7 +80,7 @@ String texte = null;
         </tr>
         <tr id="champ_lgCornes" style="display: none;">
             <td>longueur cornes:</td>
-            <td><input type="number" name="lgCornes" placeholder="entier" step="0.01" min="0" required></td>
+            <td><input type="number" name="lgCornes" value="0" placeholder="entier" step="0.01" min="0" required></td>
         </tr>
 		<tr>
             <td>cage n°:</td>
