@@ -82,6 +82,10 @@ public final class Manager {
 		return lesCages.get(mangeur).devorer(lesCages.get(mange));
 	}
 	
+	public String creer(String typeAnimal, String nom, int age, double poids, int lgCornes, int numCage) {
+		return lesCages.get(numCage-1).creer(typeAnimal, nom, age, poids, lgCornes);
+	}
+	
 	/**
 	 * 
 	 * @param mangeur indice de l'animal mangeur (sa cage)

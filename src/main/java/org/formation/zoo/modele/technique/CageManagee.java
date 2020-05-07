@@ -1,5 +1,7 @@
 package org.formation.zoo.modele.technique;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import org.formation.zoo.modele.metier.Animal;
 import org.formation.zoo.modele.metier.Cage;
 import org.formation.zoo.modele.metier.Mangeable;
@@ -14,6 +16,10 @@ public final class CageManagee {
 	 * chemin de l'image
 	 */
 	private final static String IMAGES="./images/";
+	/**
+	 * chemin pour instancier aimal
+	 */
+	public final static String CHEMIN = "org.formation.zoo.modele.metier.";
 	/**
 	 * attribut de type Cage
 	 */
@@ -63,7 +69,8 @@ public final class CageManagee {
 		}
 		else
 		{
-			vue.setPancarte("cage vide");
+			String pancarte = String.join(" ", "cage n°", Integer.toString(vue.getCle()), "vide");
+			vue.setPancarte(pancarte);
 			tmp = String.join("", IMAGES, "cage.jpg");
 		}
 		vue.setImage(tmp);
@@ -72,48 +79,13 @@ public final class CageManagee {
 	
 	///////////////NOUVEAU////////////////
 	
-	/**
-	 * 
-	 * @return l'animal dans la cage
-	 */
-	public Animal getOccupant() {
-		return controleur.getOccupant();
-	}
-	
-	/**
-	 * Ouvrir la cage
-	 */
-	public void ouvrir() {
-		controleur.ouvrir();
-	}
-	
-	/**
-	 * Fermer la cage
-	 */
-	public void fermer() {
-		controleur.fermer();
-	}
-	
-	/**
-	 * Sortir l'animal de la cage
-	 * 
-	 * @return l'animal dans la cage
-	 */
-	public Animal sortir() {
-		try {
-			return controleur.sortir();
-		} catch (PorteException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
 	
 	/**
 	 * Méthode appelé pour effacer une gazelle mangé par un lion.
 	 * Enlève la gazelle dans la cage dans base de données
 	 * et supprime l'enregistrement dans table Gazelle concernant la longueur de ses cornes 
 	 */
-	public void retirer() {
+	private void retirer() {
 		Dao<GazellePOJO> modeleGaz = null;
 		modeleGaz = DaoFactory.getInstance().getDaoGaz();
 		modeleGaz.effacer(vue.getGaz());
@@ -125,29 +97,77 @@ public final class CageManagee {
 		modele.modifier(vue.getCle(), vue);
 	}
 	
-	public String devorer(CageManagee cageManagee) {
+	public String devorer(CageManagee cmProie) {
 		String s = "INCOMPATIBLE";
 		Mangeable laBeteConvoitee = null;
-		if(controleur.getOccupant() != null && controleur.getOccupant() != cageManagee.getOccupant() 
-				&& cageManagee.getOccupant() instanceof Mangeable)
+		if(controleur.getOccupant() != null && controleur.getOccupant() != cmProie.controleur.getOccupant()
+				&& cmProie.controleur.getOccupant() instanceof Mangeable)
 		{
-			cageManagee.ouvrir();
-			laBeteConvoitee = (Mangeable) cageManagee.sortir();
+			cmProie.controleur.ouvrir();
+			try {
+				laBeteConvoitee = (Mangeable) cmProie.controleur.sortir();
+			} catch (PorteException e2) {
+				e2.printStackTrace();
+			}
 			try {
 				s = controleur.devorer(laBeteConvoitee);
 				vue.setPoids(controleur.getOccupant().getPoids());
 				modele.modifier(vue.getCle(), vue);
-				cageManagee.retirer();
+				cmProie.retirer();
 			} catch (BeurkException e) {
 				s = e.getMessage();
 				try {
-					cageManagee.entrer((Animal)laBeteConvoitee);
+					cmProie.entrer((Animal)laBeteConvoitee);
 				} catch (PorteException | CagePleineException e1) {
 					e1.printStackTrace();
 				}
-				cageManagee.fermer();
+				cmProie.controleur.fermer();
 			}
 		}
+		return s;
+	}
+	
+	public String creer(String typeAnimal, String nom, int age, double poids, int lgCornes) {
+		String s = "Cage occupée";
+		if(controleur.getOccupant() == null)
+		{
+			Animal a = null; 
+			Constructor classeAnimal = null;
+			try {
+				if(typeAnimal.equals("Gazelle"))
+				{
+					classeAnimal = (Constructor) Class.forName(String.join("", CHEMIN,typeAnimal)).getConstructor(String.class, Integer.TYPE, Double.TYPE, Integer.TYPE);
+					a = (Animal) classeAnimal.newInstance(nom, age, poids, lgCornes);
+				}
+				else
+				{
+					classeAnimal = (Constructor) Class.forName(String.join("", CHEMIN,typeAnimal)).getConstructor(String.class, Integer.TYPE, Double.TYPE);
+					a = (Animal) classeAnimal.newInstance(nom, age, poids);
+				}
+				controleur.entrer(a);
+				controleur.fermer();
+				
+				if(typeAnimal.equals("Gazelle"))
+				{
+					GazellePOJO pojo = new GazellePOJO();
+					pojo.setIdAnimal(vue.getCle());
+					pojo.setLgCornes(lgCornes);
+					vue.setGaz(pojo);
+				}
+				
+				vue.setCodeAnimal(typeAnimal);
+				vue.setNom(nom);
+				vue.setAge(age);
+				vue.setPoids(poids);
+				modele.modifier(vue.getCle(), vue);
+				
+				s = "Opération réussie... Nouveau Animal ajouté";
+				
+			} catch (ClassNotFoundException | PorteException | CagePleineException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		return s;
 	}
 	

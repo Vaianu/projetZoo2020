@@ -134,9 +134,9 @@ public class Cage implements Serializable{
 	}
 	
 	public String devorer(Mangeable m) throws BeurkException {
-		if(getOccupant() != null) {
+		if(getOccupant() != null)
 			return getOccupant().manger(m);
-		}
+		
 		return null;
 	}
 	

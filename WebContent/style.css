@@ -34,7 +34,10 @@ nav li{
 }
 
 table{
-	width: 100%;
+	width: 450px;
+	position: absolute;
+	top: 130px;
+	right: 20px;
 }
 table, th, td{
 	border: solid 1px #8b8b8b;
@@ -74,6 +77,11 @@ a:hover{
 .bnt{
 	text-align: center;
 }
+
+button, .mangeur input, .mange input{
+	cursor: pointer;
+}
+
 footer{
 	position: absolute;
 	bottom: 0px;
