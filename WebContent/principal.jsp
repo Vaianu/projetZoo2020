@@ -5,18 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Bienvenue DANS le ZOO</title>
-<link rel="stylesheet" type="text/css" href="style.css"></link>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <header>
 <img class="logoGauche" alt="" src="images/logo.png"/>
 <img class="logoDroit" alt="" src="images/logo.png"/><p>Le zoo en folie</p>
 </header>
-<form name="fzoo" action="devorer" method="GET">
+<form name="fzoo_devorer" action="devorer" method="GET">
 <nav>
 <ul class="m">
 	<li class="m"><a href="nourrir">TOUT le monde mange (defaut)</a></li>
-	<li class="m"><a href="#" onClick="fzoo.submit();">FAIRE manger les animaux selectionnes</a></li>
+	<li class="m"><a href="#" onClick="fzoo_devorer.submit();">FAIRE manger les animaux selectionnes</a></li>
 	<li class="m"><a id="btnAjouter" href="#">Ajouter un animal</a></li>
 	<li class="m"><a href="#">Supprimer un animal</a></li>
 </ul>
