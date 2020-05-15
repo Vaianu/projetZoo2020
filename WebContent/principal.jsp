@@ -32,7 +32,7 @@
 					</div>
 					<div class="mange">
 						<input type="radio" value="${loop.index}" id="mange${loop.index}" name="mange">
-						<label for="mange${loop.index}">Mangeur</label>
+						<label for="mange${loop.index}">Mange</label>
 					</div>
 				</div>
 			</c:forEach>
