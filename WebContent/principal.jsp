@@ -1,3 +1,4 @@
+<%@taglib uri="/WEB-INF/tld/c.tld" prefix="c"%>
 <%@page import="org.formation.zoo.service.CagePOJO"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
