@@ -4,14 +4,13 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>270</x>
-      <y>100</y>
+      <x>1110</x>
+      <y>230</y>
       <w>200</w>
       <h>200</h>
     </coordinates>
     <panel_attributes>Cage
 --
--occupant : Animal
 -x:int
 -y:int
 ouvert : boolean
@@ -22,18 +21,19 @@ ouvert : boolean
 +fermer()
 +isOuvert() : boolean
 +toString : String
-bg=orange</panel_attributes>
+bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>240</y>
-      <w>230</w>
-      <h>170</h>
+      <x>530</x>
+      <y>820</y>
+      <w>250</w>
+      <h>200</h>
     </coordinates>
-    <panel_attributes>FichierAccess
+    <panel_attributes>template=T
+FichierAccess
 --
 -fichier : String
 -elts : List&lt;Cage&gt;
@@ -50,8 +50,8 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>110</x>
-      <y>10</y>
+      <x>280</x>
+      <y>0</y>
       <w>120</w>
       <h>120</h>
     </coordinates>
@@ -61,18 +61,16 @@ bg=green</panel_attributes>
 --
 +afficher()
 +nourrir()
-+devorer() : String
-+fermer()
-bg=cyan</panel_attributes>
+bg=red</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>560</x>
-      <y>220</y>
+      <x>1400</x>
+      <y>360</y>
       <w>200</w>
-      <h>160</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>/Animal/
 --
@@ -87,16 +85,16 @@ bg=cyan</panel_attributes>
 +crier() : String
 +sauter()
 +courir
-bg=yellow</panel_attributes>
+bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>540</x>
-      <y>20</y>
+      <x>1380</x>
+      <y>150</y>
       <w>190</w>
-      <h>160</h>
+      <h>170</h>
     </coordinates>
     <panel_attributes>/Individu/
 --
@@ -109,16 +107,16 @@ bg=yellow</panel_attributes>
 +courir()
 +dormir()
 +getInfos() : String
-bg=light_gray</panel_attributes>
+bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>830</x>
-      <y>270</y>
-      <w>160</w>
-      <h>160</h>
+      <x>1670</x>
+      <y>400</y>
+      <w>190</w>
+      <h>170</h>
     </coordinates>
     <panel_attributes>Gazelle
 --
@@ -131,66 +129,56 @@ _serialVersionUID=1L : long_
 +finalize()
 +toString : String
 +prelever() : double
-bg=red</panel_attributes>
+bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>810</x>
-      <y>40</y>
+      <x>1650</x>
+      <y>170</y>
       <w>160</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>Mangeable
+    <panel_attributes>/Mangeable/
 --
 
 --
 +prelever() : double
-bg=light_gray</panel_attributes>
+bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>70</x>
-      <y>60</y>
-      <w>60</w>
-      <h>200</h>
+      <x>1060</x>
+      <y>180</y>
+      <w>240</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-m2=1</panel_attributes>
-    <additional_attributes>40.0;10.0;10.0;10.0;10.0;180.0</additional_attributes>
+m2=0..n
+r2=-controleur</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;20.0;150.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>220</x>
-      <y>60</y>
-      <w>190</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
-m2=0..n</panel_attributes>
-    <additional_attributes>10.0;10.0;150.0;10.0;150.0;40.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>460</x>
-      <y>170</y>
+      <x>1300</x>
+      <y>300</y>
       <w>120</w>
-      <h>100</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=-
-m2=0..1</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;80.0</additional_attributes>
+m2=0..1
+r2=-occupant</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>890</x>
-      <y>130</y>
+      <x>1730</x>
+      <y>260</y>
       <w>30</w>
       <h>160</h>
     </coordinates>
@@ -200,8 +188,8 @@ m2=0..1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
-      <y>170</y>
+      <x>1480</x>
+      <y>310</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
@@ -211,10 +199,10 @@ m2=0..1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>310</x>
-      <y>450</y>
+      <x>1140</x>
+      <y>610</y>
       <w>190</w>
-      <h>110</h>
+      <h>120</h>
     </coordinates>
     <panel_attributes>Singe
 --
@@ -224,15 +212,15 @@ _serialVersionUID=1L : long_
 +courir()
 +dormir()
 +sauter()
-bg=red</panel_attributes>
+bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>580</x>
-      <y>430</y>
-      <w>180</w>
+      <x>1420</x>
+      <y>610</y>
+      <w>210</w>
       <h>140</h>
     </coordinates>
     <panel_attributes>Lion
@@ -244,25 +232,25 @@ _serialVersionUID=1L : long_
 +crier() : String
 +dormir()
 +sauter()
-bg=red</panel_attributes>
+bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
-      <y>270</y>
+      <x>1590</x>
+      <y>410</y>
       <w>100</w>
-      <h>100</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;80.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>660</x>
-      <y>370</y>
+      <x>1500</x>
+      <y>550</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
@@ -272,18 +260,18 @@ bg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>490</x>
-      <y>370</y>
-      <w>160</w>
-      <h>130</h>
+      <x>1320</x>
+      <y>550</y>
+      <w>170</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>140.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>150.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>70</x>
+      <x>1140</x>
       <y>490</y>
       <w>140</w>
       <h>50</h>
@@ -296,12 +284,408 @@ fg=black</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>200</x>
-      <y>290</y>
-      <w>380</w>
-      <h>220</h>
+      <x>1270</x>
+      <y>430</y>
+      <w>150</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>360.0;10.0;10.0;200.0</additional_attributes>
+    <additional_attributes>130.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>80</y>
+      <w>310</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;final&gt;&gt;
+&lt;&lt;Singleton&gt;&gt;
+Manager
+--
+
+--
+_+getInstance() : Manager_
++init()
++nourrir()
++devorer(mangeur:int,mange:int) : String
++creer(typeAnimal:String,nom:String,age:int,
+poids:double,lgCornes:int,numCage:int) : String
++afficher() : String[]
++getAnimaux() : List&lt;CagePOJO&gt;
+bg=light_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>20</y>
+      <w>140</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>120.0;60.0;120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>870</x>
+      <y>160</y>
+      <w>200</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;final&gt;&gt;
+CageManagee
+--
+_-IMAGES : String_
+_-CHEMIN : String_
+--
++entrer(a:Animal)
++nourrir()
++sortir() : Animal
++ouvrir()
++fermer()
++isOuvert() : boolean
++toString : String
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>110</y>
+      <w>270</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..n
+r2=-lesCages</panel_attributes>
+    <additional_attributes>10.0;10.0;190.0;10.0;190.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>0</y>
+      <w>200</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1.1
+r2=_-instance_</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0;120.0;10.0;120.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>360</y>
+      <w>230</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Singleton&gt;&gt;
+DaoFactory
+--
+
+--
++getDao() : Dao&lt;CagePOJO&gt;
++getDaoGaz() : Dao&lt;GazellePOJO&gt;
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>290</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>750</y>
+      <w>150</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;130.0;50.0;130.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>590</y>
+      <w>290</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>template=T
+/Dao/
+--
+
+--
++getDao() : Dao&lt;CagePOJO&gt;
++getDaoGaz() : Dao&lt;GazellePOJO&gt;
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>390</y>
+      <w>110</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1.1
+r2=_-instance_</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0;10.0;70.0;90.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>520</y>
+      <w>90</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+r2=&lt;&lt;product&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>750</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>820</y>
+      <w>230</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>template=T
+AccesJPA
+--
+
+--
++lireTous() : List&lt;T&gt;
++lire(cle:int) : T
++ecrireTous(elts:List&lt;T&gt;)
++modifier(cle:int,obj:T)
++effacer(cle:int)
++effacer(obj:T)
++ajouter(obj:T)
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>830</y>
+      <w>230</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>DaoJDBCImpl
+--
+
+--
++lireTous() : List&lt;CagePOJO&gt;
++lire(cle:int) : CagePOJO
++ecrireTous(elts:List&lt;CagePOJO&gt;)
++modifier(cle:int,obj:CagePOJO)
++effacer(cle:int)
++effacer(obj:CagePOJO)
++ajouter(obj:CagePOJO)
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>100</x>
+      <y>750</y>
+      <w>230</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>210.0;10.0;210.0;40.0;10.0;40.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>870</x>
+      <y>420</y>
+      <w>200</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>CagePOJO
+--
+_serialVersionUID=1L : long_
+-x : int
+-y : int
+-cle : int
+-codeAnimal : String
+-nom : String
+-age : int
+-poids : double
+-pancarte : String
+-image : String
+--
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>1070</y>
+      <w>230</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Persistence
+--
+
+--
+bg=green
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>1010</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>870</x>
+      <y>720</y>
+      <w>200</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>GazellePOJO
+--
+_serialVersionUID=1L : long_
+-id : int
+-idAnimal : int
+-lgCornes : int
+--
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>350</y>
+      <w>50</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=0..n
+r2=vue</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>960</x>
+      <y>630</y>
+      <w>60</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..1
+r2=-gaz</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>550</y>
+      <w>120</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Serializable
+--
+
+--
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>770</x>
+      <y>530</y>
+      <w>130</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;100.0;60.0;100.0;60.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>710</x>
+      <y>670</y>
+      <w>180</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;160.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1120</x>
+      <y>20</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;final&gt;&gt;
+Conversion
+--
+
+--
+_+pojoToCage(cp:CagePOJO) : Cage_
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1030</x>
+      <y>60</y>
+      <w>110</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0;10.0;100.0</additional_attributes>
   </element>
 </diagram>
